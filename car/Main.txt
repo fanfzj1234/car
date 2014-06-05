@@ -1,0 +1,1739 @@
+<Window x:Class="car.Main"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  Title="龙江二手车" Height="700" Width="1050" Loaded="Window_Loaded" MaxWidth="1050" MaxHeight="700" MinHeight="700" MinWidth="1050" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+
+        <Grid.Background>
+
+            <ImageBrush Stretch="Fill" ImageSource="image\22.jpg"/>
+
+        </Grid.Background>
+
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="100*"></ColumnDefinition>
+
+            <ColumnDefinition Width="400*"></ColumnDefinition>
+
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="20*"></RowDefinition>
+
+            <RowDefinition Height="60*"></RowDefinition>
+
+            <RowDefinition Height="200*"></RowDefinition>
+
+            <RowDefinition Height="10*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" Grid.ColumnSpan="2">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="50*"></ColumnDefinition>
+
+                <ColumnDefinition Width="900*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+
+            <Image Source="image\LOGO.jpg" Grid.Column="0" Width="30" Height="30" Margin="3"></Image>
+
+            <TextBlock Text="龙江二手车" Grid.Column="1" FontSize="20" Foreground="Wheat" Margin="0,15,0,0"></TextBlock>
+
+        </Grid>
+
+        <Grid Grid.RowSpan="2" Grid.Column="0" Grid.Row="1" Name="PersonInfor" Margin="0,0,0,0" Background="White" Opacity="1">
+
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="30*"></RowDefinition>
+
+                <RowDefinition Height="10*"></RowDefinition>
+
+                <RowDefinition Height="100*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Column="0" >
+
+                <Grid>
+
+                    <Grid.Background>
+
+                        <ImageBrush Stretch="Fill" ImageSource="image\背景4.jpg"/>
+
+                    </Grid.Background>
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="30*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="50*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="1">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition ></RowDefinition>
+
+                            <RowDefinition ></RowDefinition>
+
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Name="UserName" FontSize="20" Foreground="Black" Margin="24,43,-21,34" Grid.RowSpan="2"/>
+
+                        <TextBlock Grid.Row="1" Name="Care" Text="我关注的(1)" FontSize="15" Foreground="Black" Margin="24,15,-21,-1"/>
+
+                    </Grid>
+
+                    <Image Source="image\UI\36.png" Grid.ColumnSpan="2" Margin="19,0,111,0" Width="80" Height="80"></Image>
+
+                </Grid>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+
+                <Image Source="image\UI\17.png" HorizontalAlignment="Left" Width="30" Height="30" Margin="9,10,0,3" MouseLeftButtonDown="image_Book_MouseLeftButtonDown"></Image>
+
+                <Label Name="lab_Book" Content="通讯录" FontSize="15" Foreground="Black" Margin="42,10,105,0" MouseLeftButtonDown="lab_Book_MouseLeftButtonDown" ></Label>
+
+                <Image Source="image\UI\32.png" Width="30" Height="30" HorizontalAlignment="Right" Margin="0,10,70,3"></Image>
+
+                <Label Content="最新活动" FontSize="15" Foreground="Black" HorizontalAlignment="Right" Margin="70,10,0,0" ></Label>
+
+            </Grid>
+
+            <Grid Grid.Row="2">
+
+                <TextBlock FontSize="15" Foreground="Black" Margin="10,0,0,0"><Run Text="好友动态："/></TextBlock>
+
+            </Grid>
+
+            <GridSplitter HorizontalAlignment="Left" Height="1" Grid.Row="2" VerticalAlignment="Top" Width="200" Background="Red" Opacity="0.5"/>
+
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Name="btnGrid" Margin="0,0,0,15">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition></ColumnDefinition>
+
+                <ColumnDefinition></ColumnDefinition>
+
+                <ColumnDefinition></ColumnDefinition>
+
+                <ColumnDefinition></ColumnDefinition>
+
+                <ColumnDefinition></ColumnDefinition>
+
+                <ColumnDefinition></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="100*"></RowDefinition>
+
+                <RowDefinition Height="30*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+
+            <Image Name="image_Message" Margin="12,15,15,15" Source="image\UI\35.png" Grid.Column="0" MouseLeftButtonDown="image_Message_MouseLeftButtonDown"></Image>
+
+            <Image Name="image_GuanM" Margin="12,15,15,15" Source="image\UI\09.png" Grid.Column="1" MouseLeftButtonDown="image_GuanM_MouseLeftButtonDown"></Image>
+
+            <Image Name="image_Look" Margin="12,15,15,15" Source="image\UI\21.png" Grid.Column="2" MouseLeftButtonDown="image_Look_MouseLeftButtonDown"></Image>
+
+            <Image Margin="12,15,15,15" Source="image\UI\20.png" Grid.Column="3"></Image>
+
+            <Image Margin="12,15,15,15" Source="image\UI\19.png" Grid.Column="4"></Image>
+
+            <Image Name="image_Infor" MouseLeftButtonDown="image_Infor_MouseLeftButtonDown" Margin="12,15,15,15" Source="image\UI\16.png" Grid.Column="5"></Image>
+
+            <TextBlock Name="txt_AddInfor" Grid.Column="0" Grid.Row="1" Text="信息发布" FontStyle="Oblique" FontSize="20" Foreground="White" Margin="5,0,0,0" HorizontalAlignment="Center" MouseLeftButtonDown="Label_Message_MouseLeftButtonDown"></TextBlock>
+
+            <TextBlock Name="txt_MS" Grid.Column="1" Grid.Row="1" Text="信息管理" FontStyle="Oblique" FontSize="20" Foreground="White" Margin="5,0,0,0" HorizontalAlignment="Center" MouseLeftButtonDown="Label_GuanM_MouseLeftButtonDown"></TextBlock>
+
+            <TextBlock Name="txt_Look" Grid.Column="2" Grid.Row="1" Text="信息浏览" FontStyle="Oblique" FontSize="20" Foreground="White" Margin="5,0,0,0" HorizontalAlignment="Center" MouseLeftButtonDown="Label_Look_MouseLeftButtonDown" ></TextBlock>
+
+            <TextBlock Grid.Column="3" Grid.Row="1" Text="违章查询" FontStyle="Oblique" FontSize="20" Foreground="White" Margin="5,0,0,0" HorizontalAlignment="Center"></TextBlock>
+
+            <TextBlock Grid.Column="4" Grid.Row="1" Text="网上店铺" FontStyle="Oblique" FontSize="20" Foreground="White" Margin="5,0,0,0" HorizontalAlignment="Center"></TextBlock>
+
+            <TextBlock Name="txt_Infor" Grid.Column="5" Grid.Row="1" Text="个人信息" FontStyle="Oblique" FontSize="20" Foreground="White" Margin="5,0,0,0" HorizontalAlignment="Center" MouseLeftButtonDown="Label_Infor_MouseLeftButtonDown"></TextBlock>
+
+        </Grid>
+
+        <Grid Grid.Column="1" Grid.Row="1" Name="mainGrid" Background="Wheat" Opacity="0.8" Margin="0,129,0,0" Grid.RowSpan="2">
+
+            <!--个人信息-->
+
+            <Grid Name="grid_Infor" Visibility="Hidden">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="17*"></RowDefinition>
+
+                    <RowDefinition Height="137*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Label Content="个人资料信息:" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" Height="34" Width="115"/>
+
+                <Grid Grid.Row="1">
+
+                    <Border Height="380" Width="800" CornerRadius="20" BorderBrush="#FFFF0000" BorderThickness="2,2,2,2">
+
+                        <Grid Margin="17,-2,-17,2" >
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="45*"></ColumnDefinition>
+
+                                <ColumnDefinition Width="353*"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="47*"></RowDefinition>
+
+                                <RowDefinition Height="47*"></RowDefinition>
+
+                                <RowDefinition Height="47*"></RowDefinition>
+
+                                <RowDefinition Height="47*"></RowDefinition>
+
+                                <RowDefinition Height="47*"></RowDefinition>
+
+                                <RowDefinition Height="47*"></RowDefinition>
+
+                                <RowDefinition Height="51*"></RowDefinition>
+
+                                <RowDefinition Height="43*"></RowDefinition>
+
+                            </Grid.RowDefinitions>
+
+                            <Label Content="会员账号：" VerticalAlignment="Bottom" Height="26"></Label>
+
+                            <Label Content="会员密码：" VerticalAlignment="Bottom" Grid.Row="1" Height="26"></Label>
+
+                            <Label Content="上传头像：" VerticalAlignment="Bottom" Grid.Row="2" Height="26"></Label>
+
+                            <Label Content="邮政编码：" VerticalAlignment="Bottom" Grid.Row="3" Height="26"></Label>
+
+                            <Label Content="QQ号：" VerticalAlignment="Bottom" Grid.Row="4" Height="26"></Label>
+
+                            <Label Content="手机号码：" VerticalAlignment="Bottom" Grid.Row="5" Height="26"></Label>
+
+                            <Label Content="个性签名：" VerticalAlignment="Bottom" Grid.Row="6" Height="26"></Label>
+
+                            <Label VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="0" Name="Label_hyzh"></Label>
+
+                            <Button Content="重置" Grid.Row="7" Grid.Column="1" Width="105" HorizontalAlignment="Center" Margin="134,10,467,10" Name="btn_Res" Click="btn_Res_Click" />
+
+                            <PasswordBox Name="Box_PassW" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" Margin="10,0,492,0" Height="22"></PasswordBox>
+
+                            <TextBox Name="txtFileN" Text="" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="10,0,536,6" ></TextBox>
+
+                            <Button Content="....." Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="199,0,467,6" Width="40" Height="22" Click="btnOpenFile_Click"></Button>
+
+                            <TextBox Name="txt_YouBian" Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Margin="10,0,600,0" Height="22" Width="100"></TextBox>
+
+                            <TextBox Name="txt_QQ" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" Margin="10,0,492,0" Height="22"></TextBox>
+
+                            <TextBox Name="txt_Phone" Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" Margin="10,0,492,0" Height="22"></TextBox>
+
+                            <TextBox Name="txt_Sign" Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom" Height="41" Margin="10,0,392,0"></TextBox>
+
+                            <Button Content="确定修改注册信息" Grid.Column="1" HorizontalAlignment="Left" Margin="355,10,0,0" Grid.Row="7" VerticalAlignment="Top" Width="105" Click="Click_Ok"/>
+
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+
+            <!--信息发布-->
+
+            <Grid Name="grid_AddInfor" Margin="0,8,0,-8">
+
+                <ScrollViewer Width="818" Height="460" HorizontalAlignment="Left">
+
+                    <Grid Width="810" Height="1300" HorizontalAlignment="Left">
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="50*"></RowDefinition>
+
+                            <RowDefinition Height="900*"></RowDefinition>
+
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+
+                                <ColumnDefinition Width="100*"></ColumnDefinition>
+
+                                <ColumnDefinition Width="300*"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" Width="100" Height="30" Content="发布卖车信息" Name="btn_SaltCar" Click="btn_SaltCar_Click"></Button>
+
+                            <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center" Width="100" Height="30" Content="发布求购" Name="btn_BuyCar" Click="btn_BuyCar_Click"></Button>
+
+                            <TextBlock Text="提示：" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Width="300" Height="30" Background="Yellow" Opacity="0.6"></TextBlock>
+
+                        </Grid>
+
+                        <Grid Name="grid_SaltCar" Grid.Column="0" Grid.Row="1" Margin="30,0,0,0">
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="30*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="30*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Text="* 请选择地区:" Grid.Row="0" Margin="10"></TextBlock>
+
+                            <ComboBox SelectedIndex="0" Grid.Row="1" Width="100" Height="20" HorizontalAlignment="Left" IsReadOnly="True" Margin="10" Name="Province">
+
+                                <ComboBoxItem Content="请选择省份" HorizontalAlignment="Center" ></ComboBoxItem>
+
+                                <ComboBoxItem Content="黑龙江省" HorizontalAlignment="Center"></ComboBoxItem>
+
+                            </ComboBox >
+
+                            <ComboBox Grid.Row="1" Width="100" Height="20" HorizontalAlignment="Left" Margin="200,0,0,0" SelectedIndex="0" Name="City">
+
+                                <ComboBoxItem Content="请选择城市：" ></ComboBoxItem>
+
+                                <ComboBoxItem Content="哈尔滨"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <TextBlock Grid.Row="2" HorizontalAlignment="Left" Margin="10"><Run Text="*请选择品牌车型："/></TextBlock>
+
+                            <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="3" Width="100" Height="20" Margin="10" Name="CarStyle">
+
+                                <ComboBoxItem Content="选择类型"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="3" Width="100" Height="20" Margin="150,0,0,0" Name="CarBrand">
+
+                                <ComboBoxItem Content="选择品牌"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="3" Width="100" Height="20" Margin="300,0,0,0" Name="CarSeries">
+
+                                <ComboBoxItem Content="选择车系"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="3" Width="100" Height="20" Margin="450,0,0,0">
+
+                                <ComboBoxItem Content="选择型号"></ComboBoxItem>
+
+                            </ComboBox>
+
+
+                            <TextBox HorizontalAlignment="Left" Height="23" Margin="14,10,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="txtLocalUrl"/>
+
+                            <Button Content="选择图片" Grid.Row="4" Width="60" Height="20" HorizontalAlignment="Left" Margin="170,10,0,10" Name="btn_image" Click="btn_image_Click"></Button>
+
+                            <TextBlock Text="最多上传4张，单张大小不超过4M的.jpg,.gif,.jpeg图片" Grid.Row="4" HorizontalAlignment="Left" Margin="245,13,0,7"></TextBlock>
+
+                            <TextBlock Text="*选择信息类别：" Grid.Row="5" HorizontalAlignment="Left" Margin="10"></TextBlock>
+
+                            <RadioButton GroupName="rad_Type" Content="个人" Grid.Row="6" Margin="20,10,0,35" HorizontalAlignment="Left" Grid.RowSpan="2"></RadioButton>
+
+                            <RadioButton GroupName="rad_Type" Content="车商" Grid.Row="6" Margin="91,10,0,35" HorizontalAlignment="Left" Grid.RowSpan="2"></RadioButton>
+
+                            <TextBlock Text=" *请填写出售价格" Grid.Row="7" Margin="10"></TextBlock>
+
+                            <TextBox Text="*请填写价格：" Grid.Row="8" Width="100" Height="20" HorizontalAlignment="Left" Margin="10"></TextBox>
+
+                            <TextBlock Text="万元" Grid.Row="8" Margin="120,14,0,6" HorizontalAlignment="Left"></TextBlock>
+
+                            <TextBlock Text="只可以输入数字" Grid.Row="8" Margin="200,20,50,0" Foreground="Red" HorizontalAlignment="Left" ></TextBlock>
+
+                            <TextBlock Text="*填写车况：" Grid.Row="9"></TextBlock>
+
+                            <TextBox Text="*请填写上牌时间" Grid.Row="10" Margin="10" Width="100" HorizontalAlignment="Left"></TextBox>
+
+                            <TextBox Text="*请填写公里数" Grid.Row="10" Margin="130,10,10,0" Width="100" HorizontalAlignment="Left"></TextBox>
+
+                            <TextBlock Text="万公里" Grid.Row="10" Margin="230,10,10,0" HorizontalAlignment="Left"></TextBlock>
+
+                            <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="10" Width="100" Height="20" Margin="300,0,0,0">
+
+                                <ComboBoxItem Content="颜色"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="10" Width="100" Height="20" Margin="450,0,0,0">
+
+                                <ComboBoxItem Content="是否事故车"></ComboBoxItem>
+
+                                <ComboBoxItem Content="是"></ComboBoxItem>
+
+                                <ComboBoxItem Content="否"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <TextBlock Grid.Row="11" HorizontalAlignment="Left" Margin="10" Text="*选择配置：" ></TextBlock>
+
+                            <TextBox Text="*请填写排量" Grid.Row="12" Margin="10" HorizontalAlignment="Left" Width="100"></TextBox>
+
+                            <TextBlock Text="L" Grid.Row="12" Margin="111,10,10,10" HorizontalAlignment="Left"></TextBlock>
+
+                            <ComboBox SelectedIndex="0" Grid.Row="12" Margin="150,10,10,10" HorizontalAlignment="Left" Width="120">
+
+                                <ComboBoxItem Content="*请选择燃油系统"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <RadioButton Grid.Row="12" Margin="300,10,10,10" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="标配"></RadioButton>
+
+                            <RadioButton Grid.Row="12" Margin="370,10,10,10" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="中配"></RadioButton>
+
+                            <RadioButton Grid.Row="12" Margin="450,10,10,10" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="高配"></RadioButton>
+
+                            <TextBlock Grid.Row="13" Margin="10" Text="*选择手续情况:"></TextBlock>
+
+                            <ComboBox SelectedIndex="0" Grid.Row="14" HorizontalAlignment="Left" Margin="10" Width="120">
+
+                                <ComboBoxItem Content="请选择是否能过户"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <ComboBox SelectedIndex="0" Grid.Row="14" HorizontalAlignment="Left" Margin="160,10,10,10" Width="120">
+
+                                <ComboBoxItem Content="请选择使用性质"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <TextBox Text="请填写检车到期" HorizontalAlignment="Left" Grid.Row="14" Margin="300,10,10,10" Width="100"></TextBox>
+
+                            <TextBox Text="请填写保险到期" HorizontalAlignment="Left" Grid.Row="14" Margin="420,10,10,10" Width="100"></TextBox>
+
+                            <TextBlock Text="*联系人:" Grid.Row="15" HorizontalAlignment="Left" Margin="10"></TextBlock>
+
+                            <TextBlock Text="例如：王先生" Grid.Row="16" HorizontalAlignment="Left" Margin="120,10,10,10"></TextBlock>
+
+                            <TextBox HorizontalAlignment="Left" Grid.Row="16" Margin="10" Width="100" Height="20"></TextBox>
+
+                            <TextBlock Text="*联系人电话：" Grid.Row="17" Margin="10" HorizontalAlignment="Left"></TextBlock>
+
+                            <TextBox Grid.Row="18" Margin="10" HorizontalAlignment="Left" Width="100"></TextBox>
+
+                            <TextBox Grid.Row="18" Margin="120,10,10,10" Text="请填写QQ号码" HorizontalAlignment="Left" Width="100"></TextBox>
+
+                            <TextBlock Grid.Row="19" Margin="10" Text="详细说明" HorizontalAlignment="Left"></TextBlock>
+
+                            <TextBox Grid.Row="20" Margin="10" HorizontalAlignment="Left" Width="300" Height="200" MaxHeight="400" MinLines="3" TextWrapping="WrapWithOverflow"></TextBox>
+
+                            <TextBlock Text="标准配置：" Margin="10" HorizontalAlignment="Left" Grid.Row="21"></TextBlock>
+
+                            <CheckBox Content="电子稳定" Grid.Row="22" HorizontalAlignment="Left" Margin="30,10,10,10"></CheckBox>
+
+                            <CheckBox Content="陡坡缓降" Grid.Row="22" HorizontalAlignment="Left" Margin="130,10,10,10"></CheckBox>
+
+                            <CheckBox Content="电动坐椅" Grid.Row="22" HorizontalAlignment="Left" Margin="230,10,10,10"></CheckBox>
+
+                            <CheckBox Content="侧气囊帘" Grid.Row="22" HorizontalAlignment="Left" Margin="330,10,10,10"></CheckBox>
+
+                            <CheckBox Content="倒车雷达" Grid.Row="22" HorizontalAlignment="Left" Margin="430,10,10,10"></CheckBox>
+
+                            <CheckBox Content="车载电话" Grid.Row="22" HorizontalAlignment="Left" Margin="30,30,10,10"></CheckBox>
+
+                            <CheckBox Content="座椅加热" Grid.Row="22" HorizontalAlignment="Left" Margin="130,30,10,10"></CheckBox>
+
+                            <CheckBox Content="后座出风" Grid.Row="22" HorizontalAlignment="Left" Margin="230,30,10,10"></CheckBox>
+
+                            <CheckBox Content="自动空调" Grid.Row="22" HorizontalAlignment="Left" Margin="330,30,10,10"></CheckBox>
+
+                            <CheckBox Content="自动大灯" Grid.Row="22" HorizontalAlignment="Left" Margin="430,30,10,10"></CheckBox>
+
+                            <CheckBox Content="电子手刹" Grid.Row="22" HorizontalAlignment="Left" Margin="30,50,10,10"></CheckBox>
+
+                            <CheckBox Content="自动变速" Grid.Row="22" HorizontalAlignment="Left" Margin="130,50,10,10"></CheckBox>
+
+                            <CheckBox Content="手动挡" Grid.Row="22" HorizontalAlignment="Left" Margin="230,50,10,10"></CheckBox>
+
+                            <CheckBox Content="真皮坐椅" Grid.Row="22" HorizontalAlignment="Left" Margin="330,50,10,10"></CheckBox>
+
+                            <CheckBox Content="疝气大灯" Grid.Row="22" HorizontalAlignment="Left" Margin="430,50,10,10"></CheckBox>
+
+                            <TextBlock Text="车辆号牌：" Grid.Row="23" HorizontalAlignment="Left" Margin="10"></TextBlock>
+
+                            <ComboBox SelectedIndex="0" Grid.Row="24" HorizontalAlignment="Left" Margin="10" Width="100">
+
+                                <ComboBoxItem Content="黑"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <ComboBox SelectedIndex="0" Grid.Row="24" HorizontalAlignment="Left" Margin="120,10,10,10" Width="100">
+
+                                <ComboBoxItem Content="A"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <TextBox Grid.Row="24" Margin="230,10,10,10" HorizontalAlignment="Left" Width="100"></TextBox>
+
+                            <Button Content="提交发布" Grid.Row="25" HorizontalAlignment="Left" Margin="10" Click="SaltCar_Click"></Button>
+
+                        </Grid>
+
+
+                        <Border BorderThickness="1" HorizontalAlignment="Left" Height="1" BorderBrush="Red" Margin="5,58,20,0" VerticalAlignment="Top" Width="810"/>
+
+                        <Grid Name="grid_BuyCar" Grid.Column="1" Grid.Row="1" Width="810" Visibility="Hidden">
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="10*"></RowDefinition>
+
+                                <RowDefinition Height="50*"></RowDefinition>
+
+                            </Grid.RowDefinitions>
+
+                            <Label Grid.Row="0" Content="车辆基本信息（必填）" FontSize="15" FontStyle="Oblique" Margin="10"></Label>
+
+                            <Label Grid.Row="1" Content="所在地区：" Margin="30,20,0,0" HorizontalAlignment="Left"></Label>
+
+                            <ComboBox Grid.Row="1" Margin="100,0,0,0" HorizontalAlignment="Left" SelectedIndex="0" Width="100" Height="20">
+
+                                <ComboBoxItem Content="请选择省份"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <ComboBox Grid.Row="1" Margin="250,0,0,0" HorizontalAlignment="Left" SelectedIndex="0" Width="100" Height="20">
+
+                                <ComboBoxItem Content="请选择城市"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <Label Content="*请选择省份城市" Grid.Row="1" Margin="400,20,0,0" HorizontalAlignment="Left"></Label>
+
+                            <Label Content="汽车类型：" Grid.Row="2" Margin="30,20,0,0"></Label>
+
+                            <ComboBox Grid.Row="2" Margin="100,0,0,0" HorizontalAlignment="Left" SelectedIndex="0" Width="100" Height="20">
+
+                                <ComboBoxItem Content="轿车类"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <Label Content="车辆型号：" HorizontalAlignment="Left" Grid.Row="3" Margin="30,20,0,0"></Label>
+
+                            <TextBox Height="20" Width="150" Grid.Row="3" HorizontalAlignment="Left" Margin="100,10,10,10"></TextBox>
+
+                            <Label Content="年限要求：" Grid.Row="4" HorizontalAlignment="Left" Margin="30,20,0,0"></Label>
+
+                            <ComboBox Grid.Row="4" Margin="100,0,0,0" HorizontalAlignment="Left" SelectedIndex="0" Width="100" Height="20">
+
+                                <ComboBoxItem Content="1年内"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <Label Content="变速箱：" Grid.Row="5" HorizontalAlignment="Left" Margin="30,20,0,0"></Label>
+
+                            <ComboBox Grid.Row="5" Margin="100,0,0,0" HorizontalAlignment="Left" SelectedIndex="0" Width="100" Height="20">
+
+                                <ComboBoxItem Content="手动"></ComboBoxItem>
+
+                            </ComboBox>
+
+                            <Label Content="行驶公里数：" HorizontalAlignment="Left" Grid.Row="6" Margin="30,20,0,0"></Label>
+
+                            <TextBox Height="20" Width="150" Grid.Row="6" HorizontalAlignment="Left" Margin="100,10,10,10"></TextBox>
+
+                            <Label Content="公里" HorizontalAlignment="Left" Grid.Row="6" Margin="245,20,0,0"></Label>
+
+                            <Label Content="购买价格：" HorizontalAlignment="Left" Grid.Row="7" Margin="30,20,0,0"></Label>
+
+                            <TextBox Height="20" Width="150" Grid.Row="7" HorizontalAlignment="Left" Margin="100,10,10,10"></TextBox>
+
+                            <Label Content="万元" HorizontalAlignment="Left" Grid.Row="7" Margin="245,20,0,0"></Label>
+
+                            <Label Content="附加说明：" HorizontalAlignment="Left" Grid.Row="8" Margin="30,20,0,0"></Label>
+
+                            <TextBox Height="250" Width="300" Grid.Row="9" HorizontalAlignment="Left" Margin="30,10,10,10"></TextBox>
+
+                            <Label Grid.Row="10" Content="求购人信息（必填）" FontSize="15" FontStyle="Oblique" Margin="10"></Label>
+
+                            <Label Content="您的姓名：" HorizontalAlignment="Left" Grid.Row="11" Margin="30,20,0,0"></Label>
+
+                            <TextBox Height="20" Width="150" Grid.Row="11" HorizontalAlignment="Left" Margin="100,10,10,10"></TextBox>
+
+                            <Label Content="联系电话：" HorizontalAlignment="Left" Grid.Row="12" Margin="30,20,0,0"></Label>
+
+                            <TextBox Height="20" Width="150" Grid.Row="12" HorizontalAlignment="Left" Margin="100,10,10,10"></TextBox>
+
+                            <Label Content="联系QQ：" HorizontalAlignment="Left" Grid.Row="13" Margin="30,20,0,0"></Label>
+
+                            <TextBox Height="20" Width="150" Grid.Row="13" HorizontalAlignment="Left" Margin="100,10,10,10"></TextBox>
+
+                            <Button Content="提交" Margin="80,10,0,0" HorizontalAlignment="Left" Grid.Row="14" Height="20" Width="90"></Button>
+
+
+                        </Grid>
+
+                    </Grid>
+
+                </ScrollViewer>
+
+
+            </Grid>
+
+            <!--信息浏览-->
+
+            <Grid Name="grid_Look" Visibility="Hidden" >
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="17*"></RowDefinition>
+
+                    <RowDefinition Height="137*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Label Content="信息浏览:" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" Height="34" Width="115"/>
+
+                <Grid Grid.Row="1">
+
+                    <Border Height="380" Width="800" CornerRadius="20" BorderBrush="#FFFF0000" BorderThickness="2,2,2,2"></Border>
+
+                    <Grid>
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="45*"></RowDefinition>
+
+                            <RowDefinition Height="353*"></RowDefinition>
+
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+
+                            <Grid.ColumnDefinitions>
+
+                                <ColumnDefinition></ColumnDefinition>
+
+                                <ColumnDefinition></ColumnDefinition>
+
+                                <ColumnDefinition></ColumnDefinition>
+
+                                <ColumnDefinition></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Text=" 全部消息:" VerticalAlignment="Bottom" FontSize="16" Foreground="#FF0B15E4" Grid.ColumnSpan="2" Margin="35,0,174,0" ></TextBlock>
+
+                            <ComboBox Grid.Column="3 " Margin="29,28,31,-8" SelectedIndex="2">
+
+                                <ComboBoxItem Name="cob_SoldM" MouseLeftButtonDown="cob_SoldM_MouseLeftButtonDown">卖家最新消息</ComboBoxItem>
+
+                                <ComboBoxItem Name="cob_BuyM" MouseLeftButtonDown="cob_BuyM_MouseLeftButtonDown">买家最新消息</ComboBoxItem>
+
+                                <ComboBoxItem Name="cob_AllM" MouseLeftButtonDown="cob_AllM_MouseLeftButtonDown">全部最新消息</ComboBoxItem>
+
+                            </ComboBox>
+
+                        </Grid>
+
+                        <!--浏览全部信息-->
+
+                        <Grid Grid.Row="1" Name="grid_ALLlook">
+
+                            <Border Height="320" Width="785" BorderBrush="DeepPink" BorderThickness="1,1,1,1" Margin="24,10,10,35">
+
+                                <Grid>
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition Height="46*"></RowDefinition>
+
+                                        <RowDefinition Height="113*"></RowDefinition>
+
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0">
+
+                                        <Border Height="80" Width="770" BorderBrush="DeepPink" BorderThickness="1,1,1,1">
+
+                                            <Grid >
+
+                                                <Grid.RowDefinitions>
+
+                                                    <RowDefinition Height="5*"></RowDefinition>
+
+                                                    <RowDefinition Height="8*"></RowDefinition>
+
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Text="按条件查找:" VerticalAlignment="Bottom"></TextBlock>
+
+                                                <Grid Grid.Row="1">
+
+                                                    <Grid.ColumnDefinitions>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="86*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="31*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="23*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="33*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Content="地区：" HorizontalAlignment="Right" VerticalAlignment="Center" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <ComboBox ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="95" Height="22" Margin="0,13" Grid.ColumnSpan="2" SelectedIndex="1">
+
+                                                        <ComboBoxItem>北京</ComboBoxItem>
+
+                                                        <ComboBoxItem>黑龙江</ComboBoxItem>
+
+                                                        <ComboBoxItem>吉林</ComboBoxItem>
+
+                                                        <ComboBoxItem>辽宁</ComboBoxItem>
+
+                                                        <ComboBoxItem>湖南</ComboBoxItem>
+
+                                                        <ComboBoxItem>湖北</ComboBoxItem>
+
+                                                        <ComboBoxItem>河南</ComboBoxItem>
+
+                                                        <ComboBoxItem>河北</ComboBoxItem>
+
+                                                        <ComboBoxItem>江西</ComboBoxItem>
+
+                                                        <ComboBoxItem>天津</ComboBoxItem>
+
+                                                        <ComboBoxItem>重庆</ComboBoxItem>
+
+                                                        <ComboBoxItem>四川</ComboBoxItem>
+
+                                                        <ComboBoxItem>广东</ComboBoxItem>
+
+                                                        <ComboBoxItem>江苏</ComboBoxItem>
+
+                                                        <ComboBoxItem>福建</ComboBoxItem>
+
+                                                        <ComboBoxItem>浙江</ComboBoxItem>
+
+                                                        <ComboBoxItem>贵州</ComboBoxItem>
+
+                                                        <ComboBoxItem>上海</ComboBoxItem>
+
+                                                        <ComboBoxItem>山东</ComboBoxItem>
+
+                                                        <ComboBoxItem>安徽</ComboBoxItem>
+
+                                                        <ComboBoxItem>广西</ComboBoxItem>
+
+                                                        <ComboBoxItem>河南</ComboBoxItem>
+
+                                                        <ComboBoxItem>内蒙古</ComboBoxItem>
+
+                                                        <ComboBoxItem>宁夏</ComboBoxItem>
+
+                                                        <ComboBoxItem>青海</ComboBoxItem>
+
+                                                        <ComboBoxItem>陕西</ComboBoxItem>
+
+                                                        <ComboBoxItem>甘肃</ComboBoxItem>
+
+                                                        <ComboBoxItem>山西</ComboBoxItem>
+
+                                                        <ComboBoxItem>云南</ComboBoxItem>
+
+                                                        <ComboBoxItem>新疆</ComboBoxItem>
+
+                                                        <ComboBoxItem>西藏</ComboBoxItem>
+
+                                                        <ComboBoxItem>澳门</ComboBoxItem>
+
+                                                        <ComboBoxItem>香港</ComboBoxItem>
+
+                                                    </ComboBox>
+
+                                                    <Label Content="品牌：" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <ComboBox ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="3" Width="95" Height="22" Margin="0,13" Grid.ColumnSpan="2" SelectedIndex="1" >
+
+                                                        <ComboBoxItem>微型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>小型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>紧凑型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>中型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>豪华车</ComboBoxItem>
+
+                                                        <ComboBoxItem>MPV</ComboBoxItem>
+
+                                                        <ComboBoxItem>SUV</ComboBoxItem>
+
+                                                        <ComboBoxItem>跑车</ComboBoxItem>
+
+                                                        <ComboBoxItem>皮卡</ComboBoxItem>
+
+                                                        <ComboBoxItem>微面</ComboBoxItem>
+
+                                                    </ComboBox>
+
+                                                    <Label Content="价格：" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <TextBox Grid.Column="5" Margin="0,10,0,10"></TextBox>
+
+                                                    <Label Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Content="--" Height="26" Margin="1,11,2,11" Width="20"></Label>
+
+                                                    <TextBox Grid.Column="7" Margin="0,10,0,10"></TextBox>
+
+                                                    <Button Grid.Column="8" Content="确定" Margin="10,10,50,10"></Button>
+
+                                                </Grid>
+
+                                            </Grid>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                    <Grid Grid.Row="1">
+
+                                        <Border Width="770" BorderBrush="DeepPink" BorderThickness="1,1,1,1" Margin="6,0,7,0">
+
+                                            <ScrollViewer Width="747" HorizontalAlignment="Right" Height="220" VerticalAlignment="Top">
+
+                                                <Grid Height="220" Width="770">
+
+                                                    <TextBox Text="全部信息" TextWrapping="Wrap"></TextBox>
+
+                                                </Grid>
+
+                                            </ScrollViewer>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                </Grid>
+
+                            </Border>
+
+                        </Grid>
+
+                        <!--浏览卖家发布的信息-->
+
+                        <Grid Grid.Row="1" Name="grid_Soldlook">
+
+                            <Border Height="320" Width="785" BorderBrush="DeepPink" BorderThickness="1,1,1,1" Margin="24,10,10,35">
+
+                                <Grid>
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition Height="46*"></RowDefinition>
+
+                                        <RowDefinition Height="113*"></RowDefinition>
+
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0">
+
+                                        <Border Height="80" Width="770" BorderBrush="DeepPink" BorderThickness="1,1,1,1">
+
+                                            <Grid >
+
+                                                <Grid.RowDefinitions>
+
+                                                    <RowDefinition Height="5*"></RowDefinition>
+
+                                                    <RowDefinition Height="8*"></RowDefinition>
+
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Text="按条件查找:" VerticalAlignment="Bottom"></TextBlock>
+
+                                                <Grid Grid.Row="1">
+
+                                                    <Grid.ColumnDefinitions>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="86*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="31*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="23*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="33*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Content="地区：" HorizontalAlignment="Right" VerticalAlignment="Center" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <ComboBox ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="95" Height="22" Margin="0,13" Grid.ColumnSpan="2" SelectedIndex="1">
+
+                                                        <ComboBoxItem>北京</ComboBoxItem>
+
+                                                        <ComboBoxItem>黑龙江</ComboBoxItem>
+
+                                                        <ComboBoxItem>吉林</ComboBoxItem>
+
+                                                        <ComboBoxItem>辽宁</ComboBoxItem>
+
+                                                        <ComboBoxItem>湖南</ComboBoxItem>
+
+                                                        <ComboBoxItem>湖北</ComboBoxItem>
+
+                                                        <ComboBoxItem>河南</ComboBoxItem>
+
+                                                        <ComboBoxItem>河北</ComboBoxItem>
+
+                                                        <ComboBoxItem>江西</ComboBoxItem>
+
+                                                        <ComboBoxItem>天津</ComboBoxItem>
+
+                                                        <ComboBoxItem>重庆</ComboBoxItem>
+
+                                                        <ComboBoxItem>四川</ComboBoxItem>
+
+                                                        <ComboBoxItem>广东</ComboBoxItem>
+
+                                                        <ComboBoxItem>江苏</ComboBoxItem>
+
+                                                        <ComboBoxItem>福建</ComboBoxItem>
+
+                                                        <ComboBoxItem>浙江</ComboBoxItem>
+
+                                                        <ComboBoxItem>贵州</ComboBoxItem>
+
+                                                        <ComboBoxItem>上海</ComboBoxItem>
+
+                                                        <ComboBoxItem>山东</ComboBoxItem>
+
+                                                        <ComboBoxItem>安徽</ComboBoxItem>
+
+                                                        <ComboBoxItem>广西</ComboBoxItem>
+
+                                                        <ComboBoxItem>河南</ComboBoxItem>
+
+                                                        <ComboBoxItem>内蒙古</ComboBoxItem>
+
+                                                        <ComboBoxItem>宁夏</ComboBoxItem>
+
+                                                        <ComboBoxItem>青海</ComboBoxItem>
+
+                                                        <ComboBoxItem>陕西</ComboBoxItem>
+
+                                                        <ComboBoxItem>甘肃</ComboBoxItem>
+
+                                                        <ComboBoxItem>山西</ComboBoxItem>
+
+                                                        <ComboBoxItem>云南</ComboBoxItem>
+
+                                                        <ComboBoxItem>新疆</ComboBoxItem>
+
+                                                        <ComboBoxItem>西藏</ComboBoxItem>
+
+                                                        <ComboBoxItem>澳门</ComboBoxItem>
+
+                                                        <ComboBoxItem>香港</ComboBoxItem>
+
+                                                    </ComboBox>
+
+                                                    <Label Content="品牌：" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <ComboBox ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="3" Width="95" Height="22" Margin="0,13" Grid.ColumnSpan="2" SelectedIndex="1" >
+
+                                                        <ComboBoxItem>微型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>小型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>紧凑型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>中型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>豪华车</ComboBoxItem>
+
+                                                        <ComboBoxItem>MPV</ComboBoxItem>
+
+                                                        <ComboBoxItem>SUV</ComboBoxItem>
+
+                                                        <ComboBoxItem>跑车</ComboBoxItem>
+
+                                                        <ComboBoxItem>皮卡</ComboBoxItem>
+
+                                                        <ComboBoxItem>微面</ComboBoxItem>
+
+                                                    </ComboBox>
+
+                                                    <Label Content="价格：" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <TextBox Grid.Column="5" Margin="0,10,0,10"></TextBox>
+
+                                                    <Label Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Content="--" Height="26" Margin="1,11,2,11" Width="20"></Label>
+
+                                                    <TextBox Grid.Column="7" Margin="0,10,0,10"></TextBox>
+
+                                                    <Button Grid.Column="8" Content="确定" Margin="10,10,50,10"></Button>
+
+                                                </Grid>
+
+                                            </Grid>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                    <Grid Grid.Row="1">
+
+                                        <Border Width="770" BorderBrush="DeepPink" BorderThickness="1,1,1,1" Margin="6,0,7,0">
+
+                                            <ScrollViewer Width="747" HorizontalAlignment="Right" Height="220" VerticalAlignment="Top">
+
+                                                <Grid Height="220" Width="770">
+
+                                                    <TextBox Text="全部信息" TextWrapping="Wrap"></TextBox>
+
+                                                </Grid>
+
+                                            </ScrollViewer>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                </Grid>
+
+                            </Border>
+
+                        </Grid>
+
+                        <!--浏览买家发布的信息-->
+
+                        <Grid Grid.Row="1" Name="grid_Buyerlook">
+
+                            <Border Height="320" Width="785" BorderBrush="DeepPink" BorderThickness="1,1,1,1" Margin="24,10,10,35">
+
+                                <Grid>
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition Height="46*"></RowDefinition>
+
+                                        <RowDefinition Height="113*"></RowDefinition>
+
+                                    </Grid.RowDefinitions>
+
+                                    <Grid Grid.Row="0">
+
+                                        <Border Height="80" Width="770" BorderBrush="DeepPink" BorderThickness="1,1,1,1">
+
+                                            <Grid >
+
+                                                <Grid.RowDefinitions>
+
+                                                    <RowDefinition Height="5*"></RowDefinition>
+
+                                                    <RowDefinition Height="8*"></RowDefinition>
+
+                                                </Grid.RowDefinitions>
+
+                                                <TextBlock Text="按条件查找:" VerticalAlignment="Bottom"></TextBlock>
+
+                                                <Grid Grid.Row="1">
+
+                                                    <Grid.ColumnDefinitions>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="85*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="86*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="31*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="23*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="33*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+
+                                                        <ColumnDefinition Width="100*"></ColumnDefinition>
+
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Content="地区：" HorizontalAlignment="Right" VerticalAlignment="Center" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <ComboBox ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="1" Width="95" Height="22" Margin="0,13" Grid.ColumnSpan="2" SelectedIndex="1" Name="xxll_Area">
+
+                                                        <ComboBoxItem>北京</ComboBoxItem>
+
+                                                        <ComboBoxItem>黑龙江</ComboBoxItem>
+
+                                                        <ComboBoxItem>吉林</ComboBoxItem>
+
+                                                        <ComboBoxItem>辽宁</ComboBoxItem>
+
+                                                        <ComboBoxItem>湖南</ComboBoxItem>
+
+                                                        <ComboBoxItem>湖北</ComboBoxItem>
+
+                                                        <ComboBoxItem>河南</ComboBoxItem>
+
+                                                        <ComboBoxItem>河北</ComboBoxItem>
+
+                                                        <ComboBoxItem>江西</ComboBoxItem>
+
+                                                        <ComboBoxItem>天津</ComboBoxItem>
+
+                                                        <ComboBoxItem>重庆</ComboBoxItem>
+
+                                                        <ComboBoxItem>四川</ComboBoxItem>
+
+                                                        <ComboBoxItem>广东</ComboBoxItem>
+
+                                                        <ComboBoxItem>江苏</ComboBoxItem>
+
+                                                        <ComboBoxItem>福建</ComboBoxItem>
+
+                                                        <ComboBoxItem>浙江</ComboBoxItem>
+
+                                                        <ComboBoxItem>贵州</ComboBoxItem>
+
+                                                        <ComboBoxItem>上海</ComboBoxItem>
+
+                                                        <ComboBoxItem>山东</ComboBoxItem>
+
+                                                        <ComboBoxItem>安徽</ComboBoxItem>
+
+                                                        <ComboBoxItem>广西</ComboBoxItem>
+
+                                                        <ComboBoxItem>河南</ComboBoxItem>
+
+                                                        <ComboBoxItem>内蒙古</ComboBoxItem>
+
+                                                        <ComboBoxItem>宁夏</ComboBoxItem>
+
+                                                        <ComboBoxItem>青海</ComboBoxItem>
+
+                                                        <ComboBoxItem>陕西</ComboBoxItem>
+
+                                                        <ComboBoxItem>甘肃</ComboBoxItem>
+
+                                                        <ComboBoxItem>山西</ComboBoxItem>
+
+                                                        <ComboBoxItem>云南</ComboBoxItem>
+
+                                                        <ComboBoxItem>新疆</ComboBoxItem>
+
+                                                        <ComboBoxItem>西藏</ComboBoxItem>
+
+                                                        <ComboBoxItem>澳门</ComboBoxItem>
+
+                                                        <ComboBoxItem>香港</ComboBoxItem>
+
+                                                    </ComboBox>
+
+                                                    <Label Content="品牌：" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="2" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <ComboBox ScrollViewer.VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Column="3" Width="95" Height="22" Margin="0,13" Grid.ColumnSpan="2" SelectedIndex="1" Name="xxll_pp" Text="请选择品牌" IsEditable="true"  IsReadOnly="true" IsDropDownOpen="True" StaysOpenOnEdit="True">
+
+                                                        <ComboBoxItem >微型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>小型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>紧凑型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>中型车</ComboBoxItem>
+
+                                                        <ComboBoxItem>豪华车</ComboBoxItem>
+
+                                                        <ComboBoxItem>MPV</ComboBoxItem>
+
+                                                        <ComboBoxItem>SUV</ComboBoxItem>
+
+                                                        <ComboBoxItem>跑车</ComboBoxItem>
+
+                                                        <ComboBoxItem>皮卡</ComboBoxItem>
+
+                                                        <ComboBoxItem>微面</ComboBoxItem>
+
+                                                    </ComboBox>
+
+                                                    <Label Content="价格：" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="4" Height="26" Margin="0,11" Width="46"></Label>
+
+                                                    <TextBox Grid.Column="5" Margin="0,10,0,10" Name="low_prise"></TextBox>
+
+                                                    <Label Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Center" Content="--" Height="26" Margin="1,11,2,11" Width="20"></Label>
+
+                                                    <TextBox Grid.Column="7" Margin="0,10,0,10" Name="high_prise"></TextBox>
+
+                                                    <Button Grid.Column="8" Content="确定" Margin="10,10,50,10" Click="xxll_Button_Click"></Button>
+
+                                                </Grid>
+
+                                            </Grid>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                    <Grid Grid.Row="1">
+
+                                        <Border Width="770" BorderBrush="DeepPink" BorderThickness="1,1,1,1" Margin="6,0,7,0">
+
+                                            <ScrollViewer Width="747" HorizontalAlignment="Right" Height="220" VerticalAlignment="Top">
+
+                                                <Grid Height="220" Width="770">
+
+                                                    <TextBox Text="全部信息" TextWrapping="Wrap"></TextBox>
+
+                                                </Grid>
+
+                                            </ScrollViewer>
+
+                                        </Border>
+
+                                    </Grid>
+
+                                </Grid>
+
+                            </Border>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+            <!--信息管理-->
+
+            <Grid Name="grid_Manage" Visibility="Hidden" >
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="17*"></RowDefinition>
+
+                    <RowDefinition Height="137*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Label Content="信息管理:" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" Height="34" Width="115"/>
+
+                <Label Content="这里是已经通过审核的信息" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+
+                <Grid Grid.Row="1">
+
+                    <Border Height="380" Width="800" CornerRadius="20" BorderBrush="#FFFF0000" BorderThickness="2,2,2,2">
+
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+
+                                <RowDefinition Height="35*"></RowDefinition>
+
+                                <RowDefinition Height="341*"></RowDefinition>
+
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition Width="112*"></ColumnDefinition>
+
+                                    <ColumnDefinition Width="113*"></ColumnDefinition>
+
+                                    <ColumnDefinition Width="97*"></ColumnDefinition>
+
+                                    <ColumnDefinition Width="128*"></ColumnDefinition>
+
+                                    <ColumnDefinition Width="346*"></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Label Content="显示中的信息 |" VerticalAlignment="Bottom" Height="26" FontSize="14" Grid.ColumnSpan="2" Margin="0,0,95,0"/>
+
+                                <Label Name="lab_Check" Content="审核中的信息 |" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1" Height="26" Width="130" Grid.ColumnSpan="2" FontSize="14" MouseLeftButtonDown="lab_Check_MouseLeftButtonDown"/>
+
+                                <Label Name="lab_Closed" Content="已关闭信息 |" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="2" Height="26" Width="130" Grid.ColumnSpan="2" FontSize="14" MouseLeftButtonDown="lab_Closed_MouseLeftButtonDown"/>
+
+                                <Label Name="lab_BuyM" Content="求购信息" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="3" Height="26" Width="130" FontSize="14" Grid.ColumnSpan="2" MouseLeftButtonDown="lab_BuyM_MouseLeftButtonDown"></Label>
+
+                            </Grid>
+
+                            <Border Grid.Row="1" Height="330" Width="785" BorderBrush="DeepPink" BorderThickness="1,1,1,1"></Border>
+
+                            <Grid Name="grid_ALL" Margin="3,0,0,0" ShowGridLines="True" Grid.Row="1">
+
+                                <Grid.RowDefinitions>
+
+                                    <RowDefinition Height="27*"></RowDefinition>
+
+                                    <RowDefinition Height="301*"></RowDefinition>
+
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+
+                                    <ColumnDefinition></ColumnDefinition>
+
+                                    <ColumnDefinition></ColumnDefinition>
+
+                                    <ColumnDefinition></ColumnDefinition>
+
+                                </Grid.ColumnDefinitions>
+
+                                <Label Content="信息"></Label>
+
+                                <Label Grid.Column="1" Content="管理"></Label>
+
+                                <Label Grid.Column="2" Content="推广"></Label>
+
+                            </Grid>
+
+                            <!--信息管理：审核中的信息-->
+
+                            <Grid Name="grid_Check" Visibility="Hidden" Margin="-6,25,6,10" Grid.RowSpan="2">
+
+                                <Border Grid.Row="1" Height="320" Width="785" BorderBrush="DeepPink" BorderThickness="1,1,1,1">
+
+                                    <Grid Margin="3,0,0,0" >
+
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="27*"></RowDefinition>
+
+                                            <RowDefinition Height="301*"></RowDefinition>
+
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+
+                                            <ColumnDefinition></ColumnDefinition>
+
+                                            <ColumnDefinition></ColumnDefinition>
+
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Content="信息"></Label>
+
+                                        <Label Grid.Column="1" Content="管理"></Label>
+
+                                    </Grid>
+
+                                </Border>
+
+                            </Grid>
+
+                            <!--信息管理：已关闭的信息-->
+
+                            <Grid Name="grid_Closed" Visibility="Hidden" Margin="-6,25,6,10" Grid.RowSpan="2">
+
+                                <Border Grid.Row="1" Height="320" Width="785" BorderBrush="DeepPink" BorderThickness="1,1,1,1">
+
+                                    <Grid Margin="3,0,0,0" >
+
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="27*"></RowDefinition>
+
+                                            <RowDefinition Height="301*"></RowDefinition>
+
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+
+                                            <ColumnDefinition></ColumnDefinition>
+
+                                            <ColumnDefinition></ColumnDefinition>
+
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Content="信息"></Label>
+
+                                        <Label Grid.Column="1" Content="管理"></Label>
+
+                                    </Grid>
+
+                                </Border>
+
+                            </Grid>
+
+                            <!--信息管理：求购信息-->
+
+                            <Grid Name="grid_BuyM" Visibility="Hidden" Margin="-6,25,6,10" Grid.RowSpan="2">
+
+                                <Border Grid.Row="1" Height="320" Width="785" BorderBrush="DeepPink" BorderThickness="1,1,1,1">
+
+                                    <Grid Margin="3,0,0,0" >
+
+                                        <Grid.RowDefinitions>
+
+                                            <RowDefinition Height="27*"></RowDefinition>
+
+                                            <RowDefinition Height="301*"></RowDefinition>
+
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+
+                                            <ColumnDefinition></ColumnDefinition>
+
+                                            <ColumnDefinition></ColumnDefinition>
+
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label Content="信息"></Label>
+
+                                        <Label Grid.Column="1" Content="管理"></Label>
+
+                                    </Grid>
+
+                                </Border>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </Border>
+
+                </Grid>
+
+            </Grid>
+
+            <!--通讯录-->
+
+            <Grid Name="grid_Book" Visibility="Hidden">
+
+                <Grid.RowDefinitions>
+
+                    <RowDefinition Height="17*"></RowDefinition>
+
+                    <RowDefinition Height="137*"></RowDefinition>
+
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+
+                    <Grid.ColumnDefinitions>
+
+                        <ColumnDefinition Width="182*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="48*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="114*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="65*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="79*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="117*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="107*"></ColumnDefinition>
+
+                        <ColumnDefinition Width="107*"></ColumnDefinition>
+
+                    </Grid.ColumnDefinitions>
+
+                    <Label Content="联系人:" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" Height="41" Width="75" Margin="0,0,0,-11"></Label>
+
+                    <Label Content="查找" Grid.Column="1" VerticalAlignment="Top" Height="41" FontSize="18" Margin="0,21,0,-11"></Label>
+
+                    <TextBox VerticalAlignment="Bottom" Grid.Column="2" Height="24" RenderTransformOrigin="0.518,0.625"/>
+
+                    <Button Grid.Column="3" VerticalAlignment="Bottom" Content="确定" HorizontalAlignment="Center" Height="20" Width="40" Margin="5,0,20,0"></Button>
+
+                    <Button Name="btn_AddBook" Content="添加" Grid.Column="5" Height="30" Width="60" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="30,0,37,0" Click="btn_AddBook_Click" ></Button>
+
+                    <Button Content="备份" Grid.Column="6" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30" Width="60" Margin="23,0,34,0"></Button>
+
+                    <Button Content="还原到" Grid.Column="7" VerticalAlignment="Bottom" HorizontalAlignment="Center" Height="30" Width="60" Margin="28,0,29,0" ></Button>
+
+                </Grid>
+
+                <Grid Grid.Row="1">
+
+                    <Border Visibility="Hidden" Height="380" Width="800" CornerRadius="20" BorderBrush="#FFFF0000" BorderThickness="2,2,2,2"></Border>
+
+                    <!--添加联系人-->
+
+                    <Grid Name="grid_Add" >
+
+                        <Grid.RowDefinitions>
+
+                            <RowDefinition Height="17*"></RowDefinition>
+
+                            <RowDefinition Height="137*"></RowDefinition>
+
+                        </Grid.RowDefinitions>
+
+                        <Label Content="添加联系人:" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="18" Height="34" Width="115"/>
+
+                        <Grid Grid.Row="1">
+
+                            <Border Height="380" Width="800" CornerRadius="20" BorderBrush="#FFFF0000" BorderThickness="2,2,2,2">
+
+                                <Grid Margin="17,-2,-17,2" >
+
+                                    <Grid.ColumnDefinitions>
+
+                                        <ColumnDefinition Width="45*"></ColumnDefinition>
+
+                                        <ColumnDefinition Width="353*"></ColumnDefinition>
+
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+
+                                        <RowDefinition Height="47*"></RowDefinition>
+
+                                        <RowDefinition Height="47*"></RowDefinition>
+
+                                        <RowDefinition Height="47*"></RowDefinition>
+
+                                        <RowDefinition Height="47*"></RowDefinition>
+
+                                        <RowDefinition Height="47*"></RowDefinition>
+
+                                        <RowDefinition Height="47*"></RowDefinition>
+
+                                        <RowDefinition Height="51*"></RowDefinition>
+
+                                        <RowDefinition Height="43*"></RowDefinition>
+
+                                    </Grid.RowDefinitions>
+
+                                    <Label Content="联系人：" VerticalAlignment="Bottom" Height="26"></Label>
+
+                                    <Label Content="联系人车型：" VerticalAlignment="Bottom" Grid.Row="1" Height="26"></Label>
+
+                                    <Label Content="联系电话：" VerticalAlignment="Bottom" Grid.Row="2" Height="26"></Label>
+
+                                    <Label Content="联系人账号：" VerticalAlignment="Bottom" Grid.Row="3" Height="26"></Label>
+
+                                    <Label Content="联系人QQ号：" VerticalAlignment="Bottom" Grid.Row="4" Height="26"></Label>
+
+                                    <Label Content="联系人账号：" VerticalAlignment="Bottom" Grid.Row="5" Height="26"></Label>
+
+                                    <Label Content="详细说明：" VerticalAlignment="Bottom" Grid.Row="6" Height="41"></Label>
+
+                                    <TextBox Grid.Column="1" VerticalAlignment="Bottom" Margin="0,0,551,0" Height="22"></TextBox>
+
+                                    <Button Content="确定" Grid.Row="7" Grid.Column="1" Width="100" HorizontalAlignment="Center" Margin="303,6" />
+
+                                    <TextBox Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="0,0,492,0" Height="22"></TextBox>
+
+                                    <TextBox Grid.Column="1" Grid.Row="3" VerticalAlignment="Bottom" Margin="10,0,492,0" Height="22"></TextBox>
+
+                                    <TextBox Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" Margin="10,0,492,0" Height="22"></TextBox>
+
+                                    <TextBox Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" Margin="10,0,492,0" Height="22"></TextBox>
+
+                                    <TextBox Grid.Column="1" Grid.Row="6" VerticalAlignment="Bottom" Height="43" Margin="10,0,441,0"></TextBox>
+
+                                    <ComboBox Grid.Column="1" Grid.Row="1" Height="22" Width="79" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+
+                                        <ComboBoxItem>微型车</ComboBoxItem>
+
+                                        <ComboBoxItem>小型车</ComboBoxItem>
+
+                                        <ComboBoxItem>紧凑型车</ComboBoxItem>
+
+                                        <ComboBoxItem>中型车</ComboBoxItem>
+
+                                        <ComboBoxItem>豪华车</ComboBoxItem>
+
+                                        <ComboBoxItem>MPV</ComboBoxItem>
+
+                                        <ComboBoxItem>SUV</ComboBoxItem>
+
+                                        <ComboBoxItem>跑车</ComboBoxItem>
+
+                                        <ComboBoxItem>皮卡</ComboBoxItem>
+
+                                        <ComboBoxItem>微面</ComboBoxItem>
+
+
+                                    </ComboBox>
+
+                                </Grid>
+
+                            </Border>
+
+                        </Grid>
+
+                    </Grid>
+
+                </Grid>
+
+            </Grid>
+
+
+
+
+
+        </Grid>
+
+
+
+
+
+        <Grid Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Background="White" Opacity="1">
+
+            <StatusBar>
+
+                <TextBlock Text="当前权限：" HorizontalAlignment="Left"></TextBlock>
+
+                <TextBlock Text="" HorizontalAlignment="Right" Margin="600,0,0,0" Name="txtTime"></TextBlock>
+
+            </StatusBar>
+
+        </Grid>
+
+
+
+
+
+    </Grid>
+
+</Window>

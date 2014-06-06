@@ -248,12 +248,14 @@ namespace car
             one_becomecolor.Background = myVerticalGradient;
             three_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
             eight_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
+            four_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
 
             grid_SellCar.Visibility = System.Windows.Visibility.Visible;
             grid_News.Visibility = System.Windows.Visibility.Hidden;
             grid_Upset_Information.Visibility = System.Windows.Visibility.Hidden;
             grid_Book.Visibility = System.Windows.Visibility.Hidden;
             grid_ManageNews.Visibility = System.Windows.Visibility.Hidden;
+            Grid_Shop.Visibility = System.Windows.Visibility.Hidden;
         }
         //工具栏，点击"通讯录"
         private void Address_Book_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -268,12 +270,39 @@ namespace car
             eight_becomecolor.Background = myVerticalGradient;
             one_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
             three_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
+            four_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
 
             grid_Book.Visibility = System.Windows.Visibility.Visible;
             grid_SellCar.Visibility = System.Windows.Visibility.Hidden;
             grid_News.Visibility = System.Windows.Visibility.Hidden;
             grid_Upset_Information.Visibility = System.Windows.Visibility.Hidden;
             grid_ManageNews.Visibility = System.Windows.Visibility.Hidden;
+            Grid_Shop.Visibility = System.Windows.Visibility.Hidden;
+        }
+        //网上店铺
+        private void Internet_shop_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Title.Content = "网 上 店 铺";
+            LinearGradientBrush myVerticalGradient = new LinearGradientBrush();
+            //设置起始点和终止点，改变渐变区域的值
+            myVerticalGradient.StartPoint = new Point(0.5, 0);
+            myVerticalGradient.EndPoint = new Point(0.5, 1);
+            myVerticalGradient.GradientStops.Add(new GradientStop(Colors.LightBlue, 1.7));
+            myVerticalGradient.GradientStops.Add(new GradientStop(Colors.Blue, 3.0));
+            four_becomecolor.Background = myVerticalGradient;
+            one_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
+            eight_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
+            three_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
+
+            Grid_Shop.Visibility = System.Windows.Visibility.Visible;
+            grid_ManageNews.Visibility = System.Windows.Visibility.Hidden;
+            grid_Book.Visibility = System.Windows.Visibility.Hidden;
+            grid_SellCar.Visibility = System.Windows.Visibility.Hidden;
+            grid_News.Visibility = System.Windows.Visibility.Hidden;
+            grid_Upset_Information.Visibility = System.Windows.Visibility.Hidden;
+
+
+            Web_Shop.Navigate("http://cheshang.2sche.cn/");
         }
         //工具栏，点击"信息管理"
         private void News_Manage_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -290,6 +319,7 @@ namespace car
             one_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
             eight_becomecolor.Background = new SolidColorBrush(Color.FromArgb(100, 221, 231, 243));
 
+            Grid_Shop.Visibility = System.Windows.Visibility.Hidden;
             grid_ManageNews.Visibility = System.Windows.Visibility.Visible;
             grid_Book.Visibility = System.Windows.Visibility.Hidden;
             grid_SellCar.Visibility = System.Windows.Visibility.Hidden;
@@ -483,5 +513,6 @@ namespace car
             return webrequest.GetResponse() as HttpWebResponse;
         }
           #endregion
+      
     }
 }

@@ -95,9 +95,9 @@
                             <Image Margin="18,5,0,5" Source="image/3.png"  HorizontalAlignment="Left" ></Image>
                             <Label Name="News_Manage" Content="信息管理" FontSize="14" Margin="38,0,0,0" HorizontalAlignment="Left" Foreground="#FF56595F" MouseLeftButtonDown="News_Manage_MouseLeftButtonDown"/>
                         </Grid>
-                        <Grid Grid.Row="4">
+                        <Grid Grid.Row="4" Name="four_becomecolor">
                             <Image Margin="18,5,0,5" Source="image/4.png"  HorizontalAlignment="Left" ></Image>
-                            <Label Name="Internet_Shop" Content="网上店铺" FontSize="14" Margin="38,0,0,0" HorizontalAlignment="Left" Foreground="#FF56595F"/>
+                            <Label Name="Internet_Shop" Content="网上店铺" FontSize="14" Margin="38,0,0,0" HorizontalAlignment="Left" Foreground="#FF56595F" MouseLeftButtonDown="Internet_shop_MouseLeftButtonDown"/>
                         </Grid>
                         <Grid Grid.Row="6">
                             <Label Content="工具箱" FontSize="13" Margin="14,0,0,0" HorizontalAlignment="Left" Foreground="#9BA5AE"/>
@@ -268,8 +268,21 @@
                         <Label Name="Upset_Information" Content="修改资料" HorizontalAlignment="Right"  Margin="0,5,10,0" Foreground="#797777" MouseLeftButtonDown="Upset_Information_MouseLeftButtonDown"></Label>
                         <Label Name="Sign_Name" Content="常年求购二手车" FontSize="15" Foreground="#FF5B5D5B" Margin="60,2,73,0"></Label>
                     </Grid>
+                    <!--网上店铺-->
+                    <Grid Grid.Row="2" Name="Grid_Shop" Visibility="Visible">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="523*"/>
+                            <ColumnDefinition Width="41*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34"></RowDefinition>
+                            <RowDefinition Height="480"></RowDefinition>
+                            <RowDefinition Height="*"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <WebBrowser Name="Web_Shop" Margin="0,0,0,10" Grid.ColumnSpan="2" Grid.RowSpan="3"/>
+                    </Grid>
                     <!--信息浏览-->
-                    <Grid Grid.Row="2" Name="grid_News" >
+                    <Grid Grid.Row="2" Name="grid_News" Visibility="Hidden" >
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="523*"/>
                             <ColumnDefinition Width="41*"/>
@@ -423,6 +436,7 @@
                             <TextBox Name="Search_Page" Width="50" Height="20" HorizontalAlignment="Left" Margin="445,4,0,13" BorderBrush="#AAADB1"/>
                             <Button Name="Search_Page_Button" Content="GO" FontSize="10" Height="20" HorizontalAlignment="Left" Margin="500,0,0,10" Foreground="#FF6B6B6C"></Button>
                         </Grid>
+                        <WebBrowser HorizontalAlignment="Left" Height="100" Margin="150,86,0,0" Grid.Row="1" VerticalAlignment="Top" Width="100"/>
                     </Grid>
                     <!--修改资料-->
                     <Grid Grid.Row="2" Name="grid_Upset_Information" Visibility="Hidden">
@@ -1003,17 +1017,17 @@
                                             <RowDefinition Height="47*"></RowDefinition>
                                             <RowDefinition Height="47*"></RowDefinition>
                                             <RowDefinition Height="51*"></RowDefinition>
-                                        </Grid.RowDefinitions> 
+                                        </Grid.RowDefinitions>
                                         <Image  Grid.Column="1" Name="AddBook_close" Source="image\联系人关闭.jpg"  Margin="349,5,20,35" MouseLeftButtonDown="AddBook_close_MouseLeftButtonDown"></Image>
                                         <Label Content="联系人：" VerticalAlignment="Bottom" Height="26"></Label>
                                         <TextBox Name="Book_name" Grid.Column="1" VerticalAlignment="Bottom" Margin="10,0,200,0" Height="22"></TextBox>
                                         <Label Content="联系人车型：" VerticalAlignment="Bottom" Grid.Row="1" Height="26" Margin="0,0,0,2"/>
-                                         <ComboBox Name="Book_Car_Style" Grid.Column="1" Grid.Row="1" Height="22" Width="100" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,2">
+                                        <ComboBox Name="Book_Car_Style" Grid.Column="1" Grid.Row="1" Height="22" Width="100" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,2">
                                             <ComboBoxItem>轿车类</ComboBoxItem>
                                             <ComboBoxItem>越野车类</ComboBoxItem>
                                             <ComboBoxItem>客车类</ComboBoxItem>
                                         </ComboBox>
-                                       
+
                                         <Label Content="联系电话：" VerticalAlignment="Bottom" Grid.Row="2" Height="26"></Label>
                                         <TextBox Name="Book_Phone" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" Margin="10,0,200,0" Height="22"></TextBox>
                                         <Label Content="联系人账号：" VerticalAlignment="Bottom" Grid.Row="3" Height="26"></Label>
@@ -1022,7 +1036,7 @@
                                         <TextBox Name="Book_QQ" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" Margin="10,0,200,0" Height="22"></TextBox>
                                         <Label Content="详细说明：" VerticalAlignment="Bottom" Grid.Row="5" Height="41"></Label>
                                         <TextBox Name="Book_Content"  Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" Height="43" Margin="10,0,100,0"></TextBox>
-                                        
+
                                         <Button Content="确定" Grid.Row="6" Grid.Column="1" Width="100" HorizontalAlignment="Center" Margin="45,20,148,20" Click="Book_Add_Button" />
 
                                     </Grid>

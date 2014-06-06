@@ -105,7 +105,7 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="image\App.config" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="image\1.png" />

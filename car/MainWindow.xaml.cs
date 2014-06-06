@@ -23,6 +23,7 @@ using System.Net;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
 using Newtonsoft.Json.Linq;
+using System.Text.RegularExpressions;
 
 
 namespace car
@@ -108,11 +109,12 @@ namespace car
 
           HttpWebResponse response = HttpWebResponseUtility.CreatePostHttpResponse(uri, parameters, null, null, Encoding.UTF8, null);
            StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
-
-           string content = reader.ReadToEnd();
+           string a = reader.ReadToEnd();
+           string content = string2Json(a);
            
            JObject obj = JObject.Parse(content);
-          MessageBox.Show(content);
+           //MessageBox.Show(a);
+          //MessageBox.Show(content);
               if (UserName == "eqing")
          // if ((string)obj["status"]=="1")
             {
@@ -144,17 +146,18 @@ namespace car
                     MessageBox.Show("欢迎 " + UserName + " 登录龙江二手车客户端!", "温馨提示");
                     var_memberid = UserName;                                                      //全局变量保存用户名
                     var_password = PassWord;                                                      //全局变量保存密码
-                   // var_uid = (string)obj["uid"];                                                 //全局变量保存uid
-                  //  var_head = (string)obj["head"];                                               //全局变量保存头像
-                   // var_qm = (string)obj["qm"];                                                   //全局变量保存签名
-                  //  var_nickname = (string)obj["nickname"];                                       //全局变量保存昵称
-                  //  var_vip = (string)obj["vip"];                                                 //全局变量保存vip
-                 //   var_vdate = (string)obj["vdate"];                                             //全局变量保存vip到期
-                  //  var_tw = (string)obj["tw"];                                                   //全局变量保存图文推广
-                  //  var_wdate = (string)obj["wdate"];                                             //全局变量保存文到期
-                  //  var_tdate = (string)obj["tdate"];                                             //全局变量保存图到期
-                  //  var_ws = (string)obj["ws"];                                                   //全局变量保存文数量
-                  //  var_ts = (string)obj["ts"];                                                   //全局变量保存图数量
+                    var_uid = (string)obj["uid"];                                                 //全局变量保存uid
+                    var_head =xg((string)obj["head"]);                                            //全局变量保存头像 
+                    MessageBox.Show(var_head);
+                    var_qm = (string)obj["qm"];                                                   //全局变量保存签名
+                    var_nickname = (string)obj["nickname"];                                       //全局变量保存昵称
+                    var_vip = (string)obj["vip"];                                                 //全局变量保存vip
+                    var_vdate = (string)obj["vdate"];                                             //全局变量保存vip到期
+                    var_tw = (string)obj["tw"];                                                   //全局变量保存图文推广
+                    var_wdate = (string)obj["wdate"];                                             //全局变量保存文到期
+                    var_tdate = (string)obj["tdate"];                                             //全局变量保存图到期
+                    var_ws = (string)obj["ws"];                                                   //全局变量保存文数量
+                    var_ts = (string)obj["ts"];                                                   //全局变量保存图数量
                     Main main = new Main();
                     main.Show();
                     this.Close();
@@ -173,23 +176,30 @@ namespace car
         {
             Process ieProc = Process.Start("http://www.2sche.cn/");
         }
-        //字符串转换
+        //字符串\\转换
          public String string2Json(String s) 
-{ 
-         StringBuilder sb = new StringBuilder(s.Length+20); 
-          sb.Append('"'); 
-          for (int i=0; i<s.Length; i++) 
-          { 
-             char c = s.ToCharArray[i];
-              if(c=='\\') 
-             {
-                 sb.Append("\\/");
-             }
-             sb.Append(c);
-          } 
-          sb.Append('"'); 
-          return sb.ToString(); 
+        {
+            string[] temp = s.Split('\\');
+             s="";
+            for(int i=0;i<temp.Length-1;i++)
+            {
+                s = s + temp[i] + "/";
+            }
+            s =s+ temp[temp.Length - 1];
+         return s; 
         }
-
+         //字符串\转换
+         public String xg(String a)
+         {
+             string[] temp = a.Split('/');
+             a= "";
+             for (int i = 0; i < temp.Length - 1; i++)
+             {
+                 a = a + temp[i] + "\\";
+             }
+             a = a + temp[temp.Length - 1];
+             
+             return a;
+         }
     }
 }

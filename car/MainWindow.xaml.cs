@@ -112,7 +112,7 @@ namespace car
            string a = reader.ReadToEnd();
            string content = string2Json(a);
            
-           JObject obj = JObject.Parse(@a);
+           JObject obj = JObject.Parse(@content);
            //MessageBox.Show(a);
           //MessageBox.Show(content);
               //  if (UserName == "eqing")

@@ -554,14 +554,13 @@
                                     <ComboBoxItem TabIndex="1" Content="轿车类"></ComboBoxItem>
                                     <ComboBoxItem TabIndex="2" Content="越野车类/SUV"></ComboBoxItem>
                                     <ComboBoxItem TabIndex="3" Content="客车类/MPV"></ComboBoxItem>
-                                    <ComboBoxItem TabIndex="4" Content="货车类"></ComboBoxItem>
-                                    <ComboBoxItem TabIndex="5" Content="工程机械类"></ComboBoxItem>
+                                    
 
                                 </ComboBox>
-                                <ComboBox Name="Cbrand" BorderBrush="#FFABADB3" SelectedIndex="0" Grid.Row="1" Width="97" Height="20" Margin="197,11,0,11" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <ComboBox Name="Cbrand" BorderBrush="#FFABADB3" SelectedIndex="0" Grid.Row="1" Width="97" Height="20" Margin="197,11,0,11" VerticalAlignment="Center" HorizontalAlignment="Left" SelectionChanged="Cbrand_Changed">
                                     <ComboBoxItem Content="选择品牌"></ComboBoxItem>
                                 </ComboBox>
-                                <ComboBox Name="Cseries" BorderBrush="#FFABADB3" SelectedIndex="0" Grid.Row="1" Width="97" Height="20" Margin="302,11,0,11" VerticalAlignment="Center" HorizontalAlignment="Left">
+                                <ComboBox Name="Cseries" BorderBrush="#FFABADB3" SelectedIndex="0" Grid.Row="1" Width="97" Height="20" Margin="302,11,0,11" VerticalAlignment="Center" HorizontalAlignment="Left" SelectionChanged="Cseries_Changed">
                                     <ComboBoxItem Content="选择车系"></ComboBoxItem>
                                 </ComboBox>
                                 <ComboBox  Name="Ctype" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="1" Width="97" Margin="407,11,0,11">

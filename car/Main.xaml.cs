@@ -25,6 +25,10 @@ namespace car
     public partial class Main : Window
     {
         private int i = 0;
+        public static string changed_Ckind;                  //定义全局变量，类型选择
+        public static string changed_Cbrand;                  //定义全局变量，类型品牌
+        public static string changed_Cseries;                  //定义全局变量，类型车系
+        public static string changed_Ctype;                  //定义全局变量，类型型号
         public Main()
         {
             InitializeComponent();
@@ -33,6 +37,7 @@ namespace car
             Nickname.Content = "昵称:" + MainWindow.var_nickname;
             Grade.Content = "等级：" + MainWindow.var_vip;
             Sign_Name.Content = MainWindow.var_qm;
+            Ctype.Visibility = System.Windows.Visibility.Hidden;
         }
         #region 标题栏
         //界面颜色变化
@@ -210,8 +215,6 @@ namespace car
             string filename1 = txt_FileFront.Text;
             string filename2 = txt_FileEnd.Text;
             
-
-         
           
         }
 
@@ -344,11 +347,16 @@ namespace car
             Grid_All_News.Visibility = System.Windows.Visibility.Visible;
             Grid_Together_News.Visibility = System.Windows.Visibility.Hidden;
         }
-        //选择菜单联动
+        //选择菜单联动1
         private void Ckind_Changed(object sender, SelectionChangedEventArgs e)
         {
-            string changed = Ckind.SelectedIndex.ToString();
-            string uri = "http://www.2sche.cn/zhushou/cartype_get.asp";
+            changed_Ckind = Ckind.SelectedIndex.ToString();
+            if (changed_Ckind != "0")
+            {
+
+
+                string uri = "http://www.2sche.cn/zhushou/cartype_get.asp?id=1&cid=" + changed_Ckind;
+            //MessageBox.Show(uri);
 
 
             HttpWebResponse response =HttpWebResponseUtility.CreateGetHttpResponse(uri, null, null, HttpWebResponseUtility.web_cookie);
@@ -357,7 +365,120 @@ namespace car
            
 
             JObject obj = JObject.Parse(a);
-            //MessageBox.Show((string)obj["pid"]);
+            JObject value = JObject.Parse(obj["datavalue"].ToString());
+            //MessageBox.Show((string)obj[0]["pid"]);
+            
+            JArray jar = JArray.Parse(value["list"].ToString());
+            Cbrand.Items.Clear();
+            
+            ComboBoxItem first = new ComboBoxItem();
+            first.Content = "选择品牌";
+            Cbrand.Items.Add(first);
+            Cbrand.SelectedIndex=0; 
+            for (var i = 0; i < jar.Count; i++)
+            {
+                JObject j = JObject.Parse(jar[i].ToString());
+                //MessageBox.Show(j["pid"].ToString());
+                //MessageBox.Show(j["pname"].ToString());
+                ComboBoxItem cbi = new ComboBoxItem();
+                cbi.Content = j["pname"].ToString();
+                cbi.TabIndex =(int)j["pid"];
+                Cbrand.Items.Add(cbi);
+                //MessageBox.Show(j["ppy"].ToString());
+            }
+            }
+        }
+        //选择菜单联动2
+        private void Cbrand_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            changed_Cbrand = Cbrand.SelectedIndex.ToString();
+            if (changed_Cbrand != "0")
+            {
+
+
+                string uri = "http://www.2sche.cn/zhushou/cartype_get.asp?id=2&cid=" + changed_Cbrand;
+                //MessageBox.Show(uri);
+
+
+                HttpWebResponse response = HttpWebResponseUtility.CreateGetHttpResponse(uri, null, null, HttpWebResponseUtility.web_cookie);
+                StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+                string a = reader.ReadToEnd();
+
+
+                JObject obj = JObject.Parse(a);
+                JObject value = JObject.Parse(obj["datavalue"].ToString());
+                //MessageBox.Show((string)obj[0]["pid"]);
+
+                JArray jar = JArray.Parse(value["list"].ToString());
+                Cseries.Items.Clear();
+
+                ComboBoxItem first = new ComboBoxItem();
+                first.Content = "选择车系";
+                Cseries.Items.Add(first);
+                Cseries.SelectedIndex = 0;
+                for (var i = 0; i < jar.Count; i++)
+                {
+                    JObject j = JObject.Parse(jar[i].ToString());
+                    //MessageBox.Show(j["pid"].ToString());
+                    //MessageBox.Show(j["pname"].ToString());
+                    ComboBoxItem cbi = new ComboBoxItem();
+                    cbi.Content = j["pname"].ToString();
+                    cbi.TabIndex = (int)j["pid"];
+                    Cseries.Items.Add(cbi);
+                    //MessageBox.Show(j["ppy"].ToString());
+                }
+            }
+        }
+        //选择菜单联动3
+        private void Cseries_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            changed_Cseries = Cseries.SelectedIndex.ToString();
+            if (changed_Cseries != "0")
+            {
+
+
+                string uri = "http://www.2sche.cn/zhushou/cartype_get.asp?id=3&cid=" + changed_Cseries;
+                //MessageBox.Show(uri);
+
+
+                HttpWebResponse response = HttpWebResponseUtility.CreateGetHttpResponse(uri, null, null, HttpWebResponseUtility.web_cookie);
+                StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+                string a = reader.ReadToEnd();
+
+
+                JObject obj = JObject.Parse(a);
+                JObject value = JObject.Parse(obj["datavalue"].ToString());
+                //MessageBox.Show((string)obj[0]["pid"]);
+                JArray jar = JArray.Parse(value["list"].ToString());
+                if(jar.Count!=0)
+                {   
+                    Ctype.Items.Clear();
+                    Ctype.Visibility = System.Windows.Visibility.Visible;
+                    ComboBoxItem first = new ComboBoxItem();
+                    first.Content = "选择车系";
+                    Ctype.Items.Add(first);
+                    Ctype.SelectedIndex = 0;
+                    for (var i = 0; i < jar.Count; i++)
+                    {
+                        JObject j = JObject.Parse(jar[i].ToString());
+                        //MessageBox.Show(j["pid"].ToString());
+                        //MessageBox.Show(j["pname"].ToString());
+                        ComboBoxItem cbi = new ComboBoxItem();
+                        cbi.Content = j["pname"].ToString();
+                        cbi.TabIndex = (int)j["pid"];
+                        Ctype.Items.Add(cbi);
+                        //MessageBox.Show(j["ppy"].ToString());
+                    }
+               }
+                else
+                {
+                    Ctype.Items.Clear();
+                    ComboBoxItem first = new ComboBoxItem();
+                    first.TabIndex = 1;
+                    Ctype.Items.Add(first);
+                    Ctype.Visibility = System.Windows.Visibility.Hidden;
+                }
+            }
         }
         #endregion
 

@@ -112,11 +112,11 @@ namespace car
            string a = reader.ReadToEnd();
            string content = string2Json(a);
            
-           JObject obj = JObject.Parse(content);
+           JObject obj = JObject.Parse(@a);
            //MessageBox.Show(a);
           //MessageBox.Show(content);
-              if (UserName == "eqing")
-         // if ((string)obj["status"]=="1")
+              //  if (UserName == "eqing")
+        if ((string)obj["status"]=="1")
             {
                // MessageBox.Show((string)obj["message"]);
                 if (Me.IsChecked == true)
@@ -147,8 +147,9 @@ namespace car
                     var_memberid = UserName;                                                      //全局变量保存用户名
                     var_password = PassWord;                                                      //全局变量保存密码
                     var_uid = (string)obj["uid"];                                                 //全局变量保存uid
-                    var_head =xg((string)obj["head"]);                                            //全局变量保存头像 
-                    MessageBox.Show(var_head);
+                    var_head = (string)obj["head"];                                               //全局变量保存头像 
+                    //.Replace('/', '\\');
+                    //MessageBox.Show(var_head);
                     var_qm = (string)obj["qm"];                                                   //全局变量保存签名
                     var_nickname = (string)obj["nickname"];                                       //全局变量保存昵称
                     var_vip = (string)obj["vip"];                                                 //全局变量保存vip
@@ -188,18 +189,6 @@ namespace car
             s =s+ temp[temp.Length - 1];
          return s; 
         }
-         //字符串\转换
-         public String xg(String a)
-         {
-             string[] temp = a.Split('/');
-             a= "";
-             for (int i = 0; i < temp.Length - 1; i++)
-             {
-                 a = a + temp[i] + "\\";
-             }
-             a = a + temp[temp.Length - 1];
-             
-             return a;
-         }
+        
     }
 }

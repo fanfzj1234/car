@@ -12,6 +12,7 @@ namespace car
 {
     public class HttpWebResponseUtility
     {
+        public static CookieCollection web_cookie;
         private static readonly string DefaultUserAgent = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; SV1; .NET CLR 1.1.4322; .NET CLR 2.0.50727)";
         /// <summary>  
         /// 创建GET方式的HTTP请求  
@@ -38,13 +39,19 @@ namespace car
             {
                 request.Timeout = timeout.Value;
             }
+            if(cookies==null)
+            {
+                request.CookieContainer = new CookieContainer();
+                web_cookie = request.CookieContainer.GetCookies(request.RequestUri);
+                request.CookieContainer.Add(web_cookie);
+            }
             if (cookies != null)
             {
                 request.CookieContainer = new CookieContainer();
                 request.CookieContainer.Add(cookies);
             }
             return request.GetResponse() as HttpWebResponse;
-        }
+        }  
         /// <summary>  
         /// 创建POST方式的HTTP请求  
         /// </summary>  
@@ -93,10 +100,17 @@ namespace car
             {
                 request.Timeout = timeout.Value;
             }
+            if (cookies == null)
+            {
+                request.CookieContainer = new CookieContainer();
+                web_cookie = request.CookieContainer.GetCookies(request.RequestUri);
+                request.CookieContainer.Add(web_cookie);
+            }
             if (cookies != null)
             {
                 request.CookieContainer = new CookieContainer();
                 request.CookieContainer.Add(cookies);
+                
             }
             //如果需要POST数据  
             if (!(parameters == null || parameters.Count == 0))
@@ -127,6 +141,92 @@ namespace car
         {
             return true; //总是接受  
         }
+
+        #region POST模拟图片上传
+        /// <summary>  
+        /// 上传图片文件 
+        /// </summary> 
+        /// <param name="url">提交的地址</param> 
+        /// <param name="poststr">发送的文本串   比如：user=eking&pass=123456  </param> 
+        /// <param name="fileformname">文本域的名称  比如：name="file"，那么fileformname=file  </param> 
+        /// <param name="filepath">上传的文件路径  比如： c:\12.jpg </param> 
+        /// <param name="cookie">cookie数据</param> 
+        /// <param name="refre">头部的跳转地址</param> 
+        /// <returns></returns> 
+        public static HttpWebResponse HttpUploadFile(string url, string filepath, CookieCollection cookie)
+        {
+
+            // 这个可以是改变的，也可以是下面这个固定的字符串 
+            string boundary = "----WebKitFormBoundaryNHzwJQMlLcjJshnK";      //boundary，通过审查元素获取
+
+            // 创建request对象 
+            HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(url);
+            webrequest.ContentType = "multipart/form-data; boundary=" + boundary;
+            webrequest.Method = "POST";
+            webrequest.Headers.Add("Cookie:"+web_cookie);
+
+            // 构造发送数据 
+            StringBuilder sb = new StringBuilder();
+
+            /*if (poststr==null)
+            {
+            // 文本域的数据，将user=eking&pass=123456  格式的文本域拆分 ，然后构造 
+            foreach (string c in poststr.Split('&'))
+            {
+                string[] item = c.Split('=');
+                if (item.Length != 2)
+                {
+                    break;
+                }
+                string name = item[0];
+                string value = item[1];
+                sb.Append("–" + boundary);
+                sb.Append("\r\n");
+                sb.Append("Content-Disposition: form-data; name=\"" + name + "\"");
+                sb.Append("\r\n\r\n");
+                sb.Append(value);
+                sb.Append("\r\n");
+            }
+            }*/
+
+            // 文件域的数据 
+            sb.Append("--" + boundary);
+            sb.Append("\r\n");
+            sb.Append("Content-Disposition: form-data; name=\"pic\";filename=\"" + filepath + "\"");//图片地址
+            sb.Append("\r\n");
+
+            sb.Append("Content-Type: ");
+            sb.Append("image/jpeg");
+            sb.Append("\r\n\r\n");
+
+            string postHeader = sb.ToString();
+            byte[] postHeaderBytes = Encoding.UTF8.GetBytes(postHeader);
+
+            //构造尾部数据 
+            byte[] boundaryBytes = Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
+
+            FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
+            long length = postHeaderBytes.Length + fileStream.Length + boundaryBytes.Length;
+            webrequest.ContentLength = length;
+
+            Stream requestStream = webrequest.GetRequestStream();
+
+            // 输入头部数据 
+            requestStream.Write(postHeaderBytes, 0, postHeaderBytes.Length);
+
+            // 输入文件流数据 
+            byte[] buffer = new Byte[checked((uint)Math.Min(4096, (int)fileStream.Length))];
+            int bytesRead = 0;
+            while ((bytesRead = fileStream.Read(buffer, 0, buffer.Length)) != 0)
+                requestStream.Write(buffer, 0, bytesRead);
+
+            // 输入尾部数据 
+            requestStream.Write(boundaryBytes, 0, boundaryBytes.Length);
+
+            // 返回数据流(源码) 
+            return webrequest.GetResponse() as HttpWebResponse;
+        }
+        #endregion
         
     }  
 }

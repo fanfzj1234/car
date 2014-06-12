@@ -269,7 +269,7 @@
                         <Label Name="Sign_Name" Content="常年求购二手车" FontSize="15" Foreground="#FF5B5D5B" Margin="60,2,73,0"></Label>
                     </Grid>
                     <!--网上店铺-->
-                    <Grid Grid.Row="2" Name="Grid_Shop" Visibility="Visible">
+                    <Grid Grid.Row="2" Name="Grid_Shop" Visibility="Hidden">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="523*"/>
                             <ColumnDefinition Width="41*"/>
@@ -460,10 +460,10 @@
                                 <Label  Content="会员账号：" Grid.Row="0" VerticalAlignment="Center" Width="400"  Height="26"></Label>
                                 <Label Name="lab_UserName" Content="XXXXXXX" Grid.Row="0" VerticalAlignment="Center" Width="400" Margin="130,0,0,0"  Height="26"></Label>
                                 <Label Content="会员密码：" Grid.Row="1" VerticalAlignment="Center" Width="400"  Height="26"></Label>
-                                <CheckBox Name="chk_Pass" Grid.Row="1" HorizontalAlignment="Center"  Width="13" Margin="-250,10,0,5"/>
-                                <Label Content="修改密码" Foreground="#FF0000" HorizontalAlignment="Center" Height="25" Width="414" Grid.Row="1" Margin="146,3,-40,3"></Label>
-                                <PasswordBox Name="txt_PassW" Grid.Row="1" VerticalAlignment="Center" Margin="0,0,0,0" Height="22" Width="100" BorderBrush="#ABADB3" Foreground="#ABADB3"/>
-                                <PasswordBox Name="txt_NPassW" Grid.Row="1" VerticalAlignment="Center" Margin="250,0,0,0" Height="22" Width="100" BorderBrush="#ABADB3" Foreground="#ABADB3"/>
+                                <CheckBox Name="chk_Pass" Grid.Row="1"  Width="17" Margin="133,10,370,30" Grid.RowSpan="2" VerticalAlignment="Center"/>
+                                <Label Content="修改密码" Foreground="#FF0000" Height="25" Width="414" Grid.Row="1" Margin="150,3,-44,3" VerticalAlignment="Center"/>
+                                <PasswordBox Name="txt_PassW" Grid.Row="1" Margin="0,0,0,0" Height="22" Width="100" BorderBrush="#ABADB3" Foreground="#ABADB3" VerticalAlignment="Center"/>
+                                <PasswordBox Name="txt_NPassW" Grid.Row="1" Margin="250,0,0,0" Height="22" Width="100" BorderBrush="#ABADB3" Foreground="#ABADB3" VerticalAlignment="Center"/>
                                 <Label Content="密码提问：" Grid.Row="2" VerticalAlignment="Center" Width="400"  Height="26"></Label>
                                 <TextBox Name="txt_Question" Text="" Grid.Row="2" Width="250" Height="22" VerticalAlignment="Center" BorderBrush="#ABADB3" Foreground="#ABADB3" ></TextBox>
                                 <Label Content="密码答案：" Grid.Row="3" VerticalAlignment="Center" Width="400"  Height="26"></Label>
@@ -502,20 +502,18 @@
                                 <TextBox Name="txt_Address" Text="" Grid.Row="4" Width="300" Height="22" VerticalAlignment="Center" BorderBrush="#ABADB3" Foreground="#ABADB3" Margin="134,3,86,5" ></TextBox>
                                 <Label Content="身份证正面：" Grid.Row="5" VerticalAlignment="Center" Width="400"  Height="26"></Label>
                                 <TextBox Name="txt_FileFront" Text="" Grid.Row="5" Width="200" Height="22" VerticalAlignment="Center" BorderBrush="#ABADB3" Foreground="#ABADB3" Margin="135,0,185,0" IsReadOnly="True" ></TextBox>
-                                <Button Name="btn_SecletF" Content="选择文件" Grid.Row="5" Width="60" Height="22" HorizontalAlignment="Center" Margin="330,4,100,5" Click="btn_SecletF_Click"></Button>
-                                <Button Name="btn_UpF" Content="上传" Grid.Row="5" Width="50" Height="22" HorizontalAlignment="Center" Margin="421,4,49,5" Click="btn_SecletF_Upload"></Button>
+                                <Button Name="btn_SecletF" Content="上传" Grid.Row="5" Width="60" Height="22" HorizontalAlignment="Center" Margin="330,4,100,5" Click="btn_SecletF_Click"></Button>
                                 <Label Content="身份证背面：" Grid.Row="6" VerticalAlignment="Center" Width="400"  Height="26"></Label>
-                                <Button Name="btn_SecletE" Content="选择文件" Grid.Row="6" Width="60" Height="22" HorizontalAlignment="Center" Margin="330,4,100,5" Click="btn_SecletE_Click"></Button>
-                                <Button Name="btn_UpE" Content="上传" Grid.Row="6" Width="50" Height="22" HorizontalAlignment="Center" Margin="421,4,49,5" Click="btn_SecletE_Upload"></Button>
+                                <Button Name="btn_SecletE" Content="上传" Grid.Row="6" Width="60" Height="22" HorizontalAlignment="Center" Margin="330,4,100,5" Click="btn_SecletE_Click"></Button>
                                 <TextBox Name="txt_FileEnd" Text="" Grid.Row="6" Width="200" Height="22" VerticalAlignment="Center" BorderBrush="#ABADB3" Foreground="#ABADB3" Margin="135,0,185,0" IsReadOnly="True" ></TextBox>
                                 <Button Name="btn_ConfirmID" Content="确认提交验证信息" Grid.Row="7" Width="105" Height="22" HorizontalAlignment="Center" Margin="280,0,135,0" Click="Upset_ConfirmID_Button"  />
                             </Grid>
                         </Grid>
                     </Grid>
                     <!--卖车助手-->
-                    <Grid Grid.Row="2" Name="grid_SellCar" Visibility="Hidden"  Margin="0,-45,0,0" HorizontalAlignment="Left" Grid.RowSpan="2" Width="564">
-                        <ScrollViewer Width="535" Height="520" Margin="0,5,0,0" >
-                            <Grid Grid.Row="2" Width="547" HorizontalAlignment="Left" Height="1100" Margin="0,10,0,1" Grid.RowSpan="2" >
+                    <Grid Name="grid_SellCar"  Margin="0,32,0,1" HorizontalAlignment="Left" Grid.RowSpan="3" Width="564">
+                        <ScrollViewer Margin="0,39,0,-2" ForceCursor="True" OverridesDefaultStyle="True" >
+                            <Grid Grid.Row="2" Width="547" HorizontalAlignment="Left" Height="746" Grid.RowSpan="2" >
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="42"></RowDefinition>
                                     <RowDefinition Height="42"></RowDefinition>
@@ -523,25 +521,26 @@
                                     <RowDefinition Height="42"></RowDefinition>
                                     <RowDefinition Height="72"></RowDefinition>
                                     <RowDefinition Height="42"></RowDefinition>
-                                    <RowDefinition Height="72"></RowDefinition>
                                     <RowDefinition Height="42"></RowDefinition>
+                                    <RowDefinition Height="72"></RowDefinition>
                                     <RowDefinition Height="42"></RowDefinition>
                                     <RowDefinition Height="60"></RowDefinition>
                                     <RowDefinition Height="42"></RowDefinition>
                                     <RowDefinition Height="100"></RowDefinition>
                                     <RowDefinition Height="42"></RowDefinition>
-                                    <RowDefinition ></RowDefinition>
+                                    <RowDefinition Height="23*" ></RowDefinition>
+
                                 </Grid.RowDefinitions>
-                                <TextBlock Text="*地区:" VerticalAlignment="Center" Grid.Row="0" Margin="20,10,0,10"></TextBlock>
-                                <ComboBox Name="province" SelectedIndex="0" Width="100" Height="20" Margin="92,10,352,10">
+                                <TextBlock Text="*地区:" Grid.Row="0" Margin="20,14,0,14" VerticalAlignment="Center" Height="14"/>
+                                <ComboBox Name="province" SelectedIndex="0" Height="20" Margin="92,11,355,11" VerticalAlignment="Center">
                                     <ComboBoxItem Content="请选择省份" ></ComboBoxItem>
                                     <ComboBoxItem Content="黑龙江省" ></ComboBoxItem>
                                 </ComboBox >
-                                <ComboBox Width="100" Name="city" Height="20" Margin="162,10,207,10" SelectedIndex="0">
+                                <ComboBox Name="city" Height="20" Margin="199,11,248,11" SelectedIndex="0" VerticalAlignment="Center">
                                     <ComboBoxItem Content="请选择城市" ></ComboBoxItem>
                                     <ComboBoxItem Content="哈尔滨"></ComboBoxItem>
                                 </ComboBox>
-                                <Rectangle Height="1" Width="547" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible" Margin="20,0,0,0">
+                                <Rectangle Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible" Margin="20,0,-20,0">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -549,21 +548,26 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Grid.Row="1" Margin="20,11,10,9" Text="*品牌车型:" VerticalAlignment="Center"></TextBlock>
-                                <ComboBox  Name="Ckind" BorderBrush="#FFABADB3" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="1" Width="97" Height="20" Margin="92,10,0,10">
-                                    <ComboBoxItem Content="选择类型"></ComboBoxItem>
-                                    <ComboBoxItem Content="1"></ComboBoxItem>
+                                <TextBlock Grid.Row="1" Margin="20,14,0,12" Text="*品牌车型:" VerticalAlignment="Center" HorizontalAlignment="Left" Height="16" Width="56"/>
+                                <ComboBox  Name="Ckind" BorderBrush="#FFABADB3" SelectedIndex="0" Grid.Row="1" Width="97" Height="20" Margin="92,0,0,11" VerticalAlignment="Bottom" HorizontalAlignment="Left" Text="选择类型" SelectionChanged="Ckind_Changed">
+                                    <ComboBoxItem TabIndex="0" Content="选择类型"></ComboBoxItem>
+                                    <ComboBoxItem TabIndex="1" Content="轿车类"></ComboBoxItem>
+                                    <ComboBoxItem TabIndex="2" Content="越野车类/SUV"></ComboBoxItem>
+                                    <ComboBoxItem TabIndex="3" Content="客车类/MPV"></ComboBoxItem>
+                                    <ComboBoxItem TabIndex="4" Content="货车类"></ComboBoxItem>
+                                    <ComboBoxItem TabIndex="5" Content="工程机械类"></ComboBoxItem>
+
                                 </ComboBox>
-                                <ComboBox Name="Cbrand" BorderBrush="#FFABADB3" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="1" Width="97" Height="20" Margin="197,10,0,10">
+                                <ComboBox Name="Cbrand" BorderBrush="#FFABADB3" SelectedIndex="0" Grid.Row="1" Width="97" Height="20" Margin="197,11,0,11" VerticalAlignment="Center" HorizontalAlignment="Left">
                                     <ComboBoxItem Content="选择品牌"></ComboBoxItem>
                                 </ComboBox>
-                                <ComboBox Name="Cseries" BorderBrush="#FFABADB3" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="1" Width="97" Height="20" Margin="302,10,0,10">
+                                <ComboBox Name="Cseries" BorderBrush="#FFABADB3" SelectedIndex="0" Grid.Row="1" Width="97" Height="20" Margin="302,11,0,11" VerticalAlignment="Center" HorizontalAlignment="Left">
                                     <ComboBoxItem Content="选择车系"></ComboBoxItem>
                                 </ComboBox>
-                                <ComboBox  Name="Ctype" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="1" Width="97" Height="20" Margin="407,10,0,10">
+                                <ComboBox  Name="Ctype" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="1" Width="97" Margin="407,11,0,11">
                                     <ComboBoxItem Content="选择型号"></ComboBoxItem>
                                 </ComboBox>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -571,10 +575,10 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Text="*信息类别：" Grid.Row="2" VerticalAlignment="Center" Margin="20,10,0,10"></TextBlock>
-                                <RadioButton Name="Cperson" GroupName="rad_Type" Content="个人" Grid.Row="2" Margin="92,10,0,10" Grid.RowSpan="2"></RadioButton>
-                                <RadioButton  Name="Ccompany" GroupName="rad_Type" Content="车商" Grid.Row="2" Margin="137,10,0,10" Grid.RowSpan="2"></RadioButton>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <TextBlock Text="*信息类别：" Grid.Row="2" Margin="20,10,0,10"/>
+                                <RadioButton Name="Cperson" GroupName="rad_Type" Content="个人" Grid.Row="2" Margin="92,10,0,10" Grid.RowSpan="2"/>
+                                <RadioButton  Name="Ccompany" GroupName="rad_Type" Content="车商" Grid.Row="2" Margin="137,10,0,10" Grid.RowSpan="2"/>
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -582,11 +586,11 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Text=" *价格:" Grid.Row="3" Margin="20,10,0,10" VerticalAlignment="Center"></TextBlock>
-                                <TextBox  Name="Cprice" Text="*请填写价格" Grid.Row="3" Width="97" Height="20" HorizontalAlignment="Left" Margin="92,10,0,10"></TextBox>
-                                <TextBlock Text="万元" Grid.Row="3" Margin="192,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
-                                <TextBlock Text="只可以输入数字" Grid.Row="3" Margin="224,10,0,10" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" ></TextBlock>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <TextBlock Text=" *价格:" Grid.Row="3" Margin="20,14,0,14" HorizontalAlignment="Left" Height="14" Width="36"/>
+                                <TextBox  Name="Cprice" Text="*请填写价格" Grid.Row="3" Width="97" HorizontalAlignment="Left" Margin="92,11,0,11"/>
+                                <TextBlock Text="万元" Grid.Row="3" Margin="192,14,0,14" VerticalAlignment="Center" HorizontalAlignment="Left" Height="14" Width="24"></TextBlock>
+                                <TextBlock Text="只可以输入数字" Grid.Row="3" Margin="224,14,0,14" Foreground="Red" HorizontalAlignment="Left" VerticalAlignment="Center" Height="14" Width="84" ></TextBlock>
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="3" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -594,8 +598,8 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Name="Ccondition"  Text="*车况：" Grid.Row="4" Margin="20,10,0,40" ></TextBlock>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <TextBlock Name="Ccondition"  Text="*车况：" Grid.Row="4" Margin="20,14,0,44" HorizontalAlignment="Left" Height="14" Width="41" />
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="4" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -605,25 +609,25 @@
                                 </Rectangle>
                                 <TextBox  Name="Ctime" Text="*请填写上牌时间" Grid.Row="4" Margin="92,10,0,40" Width="97" HorizontalAlignment="Left"></TextBox>
                                 <TextBox  Name="Ckilometre" Text="*请填写公里数" Grid.Row="4" Margin="210,10,0,40" Width="97" HorizontalAlignment="Left"></TextBox>
-                                <TextBlock Text="万公里" Grid.Row="4" Margin="307,10,0,40" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBlock>
-                                <ComboBox  Name="Ccolor" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="4" Width="97" Height="20" Margin="92,40,0,10">
+                                <TextBlock Text="万公里" Grid.Row="4" Margin="307,14,0,44" VerticalAlignment="Center" HorizontalAlignment="Left" Height="14" Width="36"></TextBlock>
+                                <ComboBox  Name="Ccolor" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="4" Width="97" Margin="92,41,0,11">
                                     <ComboBoxItem Content="颜色"></ComboBoxItem>
                                 </ComboBox>
-                                <ComboBox  Name="Caccident" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="4" Width="97" Height="20" Margin="210,40,0,10">
+                                <ComboBox  Name="Caccident" SelectedIndex="0" HorizontalAlignment="Left" Grid.Row="4" Width="97" Margin="210,41,0,11">
                                     <ComboBoxItem Content="是否事故车"></ComboBoxItem>
                                     <ComboBoxItem Content="是"></ComboBoxItem>
                                     <ComboBoxItem Content="否"></ComboBoxItem>
                                 </ComboBox>
-                                <TextBlock Grid.Row="5" HorizontalAlignment="Left" Margin="20,10,0,10" VerticalAlignment="Center" Text="*配置：" ></TextBlock>
+                                <TextBlock Grid.Row="5" HorizontalAlignment="Left" Margin="20,14,0,14" Text="*配置：" Height="14" Width="41" />
                                 <TextBox  Name="CPL" Text="*请填写排量" Grid.Row="5" Margin="92,10,0,10" HorizontalAlignment="Left" Width="77"></TextBox>
-                                <TextBlock Text="L" Grid.Row="5" Margin="172,10,0,10" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
-                                <ComboBox  Name="CRY" SelectedIndex="0" Grid.Row="5" Margin="186,10,10,10" HorizontalAlignment="Left" Width="120" VerticalAlignment="Center">
+                                <TextBlock Text="L" Grid.Row="5" Margin="172,14,0,14" HorizontalAlignment="Left" VerticalAlignment="Center" Height="14" Width="6"></TextBlock>
+                                <ComboBox  Name="CRY" SelectedIndex="0" Grid.Row="5" Margin="186,10,0,10" HorizontalAlignment="Left" Width="120" VerticalAlignment="Center" Height="22">
                                     <ComboBoxItem Content="*请选择燃油系统"></ComboBoxItem>
                                 </ComboBox>
-                                <RadioButton Name="CLP" Grid.Row="5" Margin="312,10,10,10" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="低配" VerticalAlignment="Center"></RadioButton>
-                                <RadioButton  Name="CMP" Grid.Row="5" Margin="357,10,10,10" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="中配" VerticalAlignment="Center"></RadioButton>
-                                <RadioButton  Name="CHP" Grid.Row="5" Margin="402,10,10,10" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="高配" VerticalAlignment="Center"></RadioButton>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <RadioButton Name="CLP" Grid.Row="5" Margin="331,14,0,14" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="低配" VerticalAlignment="Center" Height="14" Width="43"></RadioButton>
+                                <RadioButton  Name="CMP" Grid.Row="5" Margin="376,14,0,14" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="中配" VerticalAlignment="Center" Height="14" Width="43"></RadioButton>
+                                <RadioButton  Name="CHP" Grid.Row="5" Margin="421,14,0,14" GroupName="rad_PeiZhi" HorizontalAlignment="Left" Content="高配" VerticalAlignment="Center" Height="14" Width="43"></RadioButton>
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -631,16 +635,16 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Grid.Row="6" Margin="20,10,0,10" Text="*手续:" ></TextBlock>
-                                <ComboBox SelectedIndex="0" Grid.Row="6" HorizontalAlignment="Left" Margin="92,10,0,40" Width="120">
+                                <TextBlock Grid.Row="6" Margin="20,16,0,0" Text="*手续:" Height="14" Width="32" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                                <ComboBox SelectedIndex="0" Grid.Row="6" Margin="92,16,0,0" Width="120" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <ComboBoxItem Content="请选择是否能过户"></ComboBoxItem>
                                 </ComboBox>
-                                <ComboBox SelectedIndex="0" Grid.Row="6" HorizontalAlignment="Left" Margin="217,10,0,40" Width="110" >
+                                <ComboBox SelectedIndex="0" Grid.Row="6" Margin="217,16,0,0" Width="110" Height="20" HorizontalAlignment="Left" VerticalAlignment="Top" >
                                     <ComboBoxItem Content="请选择使用性质"></ComboBoxItem>
                                 </ComboBox>
-                                <TextBox Text="请填写检车到期" HorizontalAlignment="Left" Grid.Row="6" Margin="92,40,10,10" Width="110"></TextBox>
-                                <TextBox Text="请填写保险到期" HorizontalAlignment="Left" Grid.Row="6" Margin="217,40,10,10" Width="100"></TextBox>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <TextBox Text="请填写检车到期" Grid.Row="6" Margin="332,16,0,0" Width="110" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <TextBox Text="请填写保险到期" Grid.Row="6" Margin="447,15,0,0" Width="100" Height="18" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -648,9 +652,9 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Text="*联系人:" Grid.Row="7" HorizontalAlignment="Left" Margin="20,10,0,10" VerticalAlignment="Center"></TextBlock>
-                                <TextBlock Text="如：王先生" Grid.Row="7" HorizontalAlignment="Left" Margin="192,10,0,10" VerticalAlignment="Center"></TextBlock>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <TextBlock Text="*联系人:" Grid.Row="7" HorizontalAlignment="Left" Margin="20,30,0,26" VerticalAlignment="Center" Height="16" Width="44"/>
+                                <TextBlock Text="如：王先生" Grid.Row="7" HorizontalAlignment="Left" Margin="192,30,0,26" VerticalAlignment="Center" Height="16" Width="60"></TextBlock>
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="7" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -658,11 +662,11 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBox HorizontalAlignment="Left" Grid.Row="7" Margin="92,10,0,10" Width="97" Height="20"></TextBox>
-                                <TextBlock Text="*联系人电话：" Grid.Row="8" Margin="20,10,0,10" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Row="8" Margin="93,10,0,10" HorizontalAlignment="Left" Width="100" VerticalAlignment="Center"></TextBox>
-                                <TextBox Grid.Row="8" Margin="200,10,0,10" Text="请填写QQ号码" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100"></TextBox>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <TextBox HorizontalAlignment="Left" Grid.Row="7" Margin="92,12,0,12" Width="97"/>
+                                <TextBlock Text="*联系人电话：" Grid.Row="8" Margin="20,14,0,14" HorizontalAlignment="Left" VerticalAlignment="Center" Height="14" Width="77"/>
+                                <TextBox Grid.Row="8" Margin="92,12,0,12" HorizontalAlignment="Left" Width="100" VerticalAlignment="Center" Height="18"></TextBox>
+                                <TextBox Grid.Row="8" Margin="200,12,0,12" Text="请填写QQ号码" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="18"></TextBox>
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="8" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -670,9 +674,9 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Grid.Row="9" Margin="20,10,0,10" Text="详细说明:" HorizontalAlignment="Left" VerticalAlignment="Center"></TextBlock>
-                                <TextBox Grid.Row="9" Margin="92,10,0,0" HorizontalAlignment="Left" Width="250" Height="45" MinLines="3" TextWrapping="WrapWithOverflow"></TextBox>
-                                <Rectangle Margin="20,0,0,0" Height="1" Width="547" Grid.Row="9" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <TextBlock Grid.Row="9" Margin="20,22,0,22" Text="详细说明:" HorizontalAlignment="Left" VerticalAlignment="Center" Height="16" Width="51"/>
+                                <TextBox Grid.Row="9" Margin="92,12,0,2" HorizontalAlignment="Left" Width="250" MinLines="3" TextWrapping="WrapWithOverflow"/>
+                                <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="9" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -680,10 +684,10 @@
                                         </LinearGradientBrush>
                                     </Rectangle.Fill>
                                 </Rectangle>
-                                <TextBlock Text="*上传照片:" Grid.Row="10" HorizontalAlignment="Left" Margin="20,10,0,10" VerticalAlignment="Center"></TextBlock>
-                                <Button Content="选择图片" Grid.Row="10" Margin="92,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Left"></Button>
-                                <TextBlock Text="最多上传4张，单张大小不超过4M的.jpg,.gif,.jpeg图片" Grid.Row="10" HorizontalAlignment="Left" Margin="160,10,0,10" VerticalAlignment="Bottom"></TextBlock>
-                                <Rectangle Margin="20,0,0,0" Grid.Row="10" Height="1" Width="547" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
+                                <TextBlock Text="*上传照片:" Grid.Row="10" HorizontalAlignment="Left" Margin="20,14,0,14" VerticalAlignment="Center" Height="14" Width="56"></TextBlock>
+                                <Button Content="选择图片" Grid.Row="10" Margin="92,12,0,12" VerticalAlignment="Center" HorizontalAlignment="Left" Height="18" Width="52"></Button>
+                                <TextBlock Text="最多上传4张，单张大小不超过4M的.jpg,.gif,.jpeg图片" Grid.Row="10" HorizontalAlignment="Left" Margin="160,0,0,10" VerticalAlignment="Bottom" Height="15" Width="291"></TextBlock>
+                                <Rectangle Margin="20,0,-20,0" Grid.Row="10" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFEBEBEC" Offset="0"/>
@@ -734,8 +738,10 @@
                                         </Rectangle.Fill>
                                     </Rectangle>
                                 </Grid>
-                                <Button Content="提交发布" Grid.Row="13" Margin="92,-100,370,290" VerticalAlignment="Center"></Button>
-                                <Button Content="重新填写" Grid.Row="13" Margin="192,-100,270,290" VerticalAlignment="Center"></Button>
+                                <Grid Grid.Row="13">
+                                    <Button Content="提交发布" Margin="92,4,370,10" VerticalAlignment="Center" Height="20"/>
+                                    <Button Content="重新填写" Margin="192,5,270,9" VerticalAlignment="Center" Height="20"/>
+                                </Grid>
                             </Grid>
                         </ScrollViewer>
                     </Grid>

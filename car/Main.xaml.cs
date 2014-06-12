@@ -29,6 +29,7 @@ namespace car
         {
             InitializeComponent();
             Account.Content = "账号："+MainWindow.var_memberid;
+            lab_UserName.Content = MainWindow.var_memberid;
             Nickname.Content = "昵称:" + MainWindow.var_nickname;
             Grade.Content = "等级：" + MainWindow.var_vip;
             Sign_Name.Content = MainWindow.var_qm;
@@ -155,41 +156,35 @@ namespace car
             OpenFileDialog ofg = new OpenFileDialog();
             ofg.ShowDialog();
             txt_FileFront.Text = ofg.FileName;
-
-        }
-        //上传图片
-        private void btn_SecletF_Upload(object sender, RoutedEventArgs e)
-        {
-            
             string filename = txt_FileFront.Text;
             string uri = "http://www.2sche.cn/zhushou/uploadpic.asp";
 
-            HttpWebResponse response = HttpUploadFile(uri, filename);
+            HttpWebResponse response = HttpWebResponseUtility.HttpUploadFile(uri, filename, HttpWebResponseUtility.web_cookie);
             StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
             string content = reader.ReadToEnd();
             JObject obj = JObject.Parse(content);
-            MessageBox.Show((string)obj["message"]);
-            MessageBox.Show(filename);
+            MessageBox.Show((string)obj["message"] + "，图片路径：" + (string)obj["pic"]);
+
         }
+       
         //获取身份证反面上传路径
         private void btn_SecletE_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofg = new OpenFileDialog();
             ofg.ShowDialog();
             txt_FileEnd.Text = ofg.FileName;
-        }
-        private void btn_SecletE_Upload(object sender, RoutedEventArgs e)
-        {
+
             string filename = txt_FileEnd.Text;
             string uri = "http://www.2sche.cn/zhushou/uploadpic.asp";
 
-            HttpWebResponse response = HttpUploadFile(uri, filename);
+            HttpWebResponse response = HttpWebResponseUtility.HttpUploadFile(uri, filename,HttpWebResponseUtility.web_cookie);
             StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
             string content = reader.ReadToEnd();
             JObject obj = JObject.Parse(content);
-            MessageBox.Show((string)obj["message"]);
-            //MessageBox.Show(filename);
+            MessageBox.Show((string)obj["message"] + "，图片路径：" + (string)obj["pic"]);
+            
         }
+        
         //修改个人资料
         private void Upset_Information_Button(object sender, RoutedEventArgs e)
         {
@@ -214,21 +209,9 @@ namespace car
             string txt_address = txt_Address.Text;
             string filename1 = txt_FileFront.Text;
             string filename2 = txt_FileEnd.Text;
-            string uri = "http://www.2sche.cn/zhushou/uploadpic.asp";
-
-            //POST上传图片
-            HttpWebResponse response1 = HttpUploadFile(uri, filename1);
-            HttpWebResponse response2 = HttpUploadFile(uri, filename2);
-            StreamReader reader1 = new StreamReader(response1.GetResponseStream(), Encoding.UTF8);
-            string content1 = reader1.ReadToEnd();
-            JObject obj1 = JObject.Parse(content1);
-            StreamReader reader2 = new StreamReader(response2.GetResponseStream(), Encoding.UTF8);
-            string content2 = reader2.ReadToEnd();
-            JObject obj2 = JObject.Parse(content2);
             
-            MessageBox.Show((string)obj1["message"]);
-            MessageBox.Show((string)obj2["message"]);
-            MessageBox.Show("1");
+
+         
           
         }
 
@@ -340,7 +323,7 @@ namespace car
 
         }
         #endregion
-
+        
         #region 卖车助手
         //同行信息
         private void Together_News_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -360,6 +343,21 @@ namespace car
             All_News.FontWeight = FontWeights.Bold;
             Grid_All_News.Visibility = System.Windows.Visibility.Visible;
             Grid_Together_News.Visibility = System.Windows.Visibility.Hidden;
+        }
+        //选择菜单联动
+        private void Ckind_Changed(object sender, SelectionChangedEventArgs e)
+        {
+            string changed = Ckind.SelectedIndex.ToString();
+            string uri = "http://www.2sche.cn/zhushou/cartype_get.asp";
+
+
+            HttpWebResponse response =HttpWebResponseUtility.CreateGetHttpResponse(uri, null, null, HttpWebResponseUtility.web_cookie);
+            StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+            string a = reader.ReadToEnd();
+           
+
+            JObject obj = JObject.Parse(a);
+            //MessageBox.Show((string)obj["pid"]);
         }
         #endregion
 
@@ -447,72 +445,12 @@ namespace car
 
         #endregion
 
-
-        #region POST模拟图片上传
-        /// <summary>  
-        /// 上传图片文件 
-        /// </summary> 
-        /// <param name="url">提交的地址</param> 
-        /// <param name="poststr">发送的文本串   比如：user=eking&pass=123456  </param> 
-        /// <param name="fileformname">文本域的名称  比如：name="file"，那么fileformname=file  </param> 
-        /// <param name="filepath">上传的文件路径  比如： c:\12.jpg </param> 
-        /// <param name="cookie">cookie数据</param> 
-        /// <param name="refre">头部的跳转地址</param> 
-        /// <returns></returns> 
-        public static HttpWebResponse HttpUploadFile(string url, string filepath)
-        {
-
-            // 这个可以是改变的，也可以是下面这个固定的字符串 
-            string boundary = "----WebKitFormBoundaryNHzwJQMlLcjJshnK";      //boundary，通过审查元素获取
-
-            // 创建request对象 
-            HttpWebRequest webrequest = (HttpWebRequest)WebRequest.Create(url);
-            webrequest.ContentType = "multipart/form-data; boundary=" + boundary;
-            webrequest.Method = "POST";
-            webrequest.Headers.Add("Cookie:ASPSESSIONIDSCRTQCQT = MJNLPIDAALAHFAIADMLEPDCN "); 
-
-            // 构造发送数据 
-            StringBuilder sb = new StringBuilder();
-
-
-            // 文件域的数据 
-            sb.Append("--" + boundary);
-            sb.Append("\r\n");
-            sb.Append("Content-Disposition: form-data; name=\"pic\";filename=\"" + filepath + "\"");//图片地址
-            sb.Append("\r\n");
-
-            sb.Append("Content-Type: ");
-            sb.Append("image/jpeg");
-            sb.Append("\r\n\r\n");
-
-            string postHeader = sb.ToString();
-            byte[] postHeaderBytes = Encoding.UTF8.GetBytes(postHeader);
-
-            //构造尾部数据 
-            byte[] boundaryBytes = Encoding.ASCII.GetBytes("\r\n--" + boundary + "--\r\n");
-
-            FileStream fileStream = new FileStream(filepath, FileMode.Open, FileAccess.Read);
-            long length = postHeaderBytes.Length + fileStream.Length + boundaryBytes.Length;
-            webrequest.ContentLength = length;
-
-            Stream requestStream = webrequest.GetRequestStream();
-
-            // 输入头部数据 
-            requestStream.Write(postHeaderBytes, 0, postHeaderBytes.Length);
-
-            // 输入文件流数据 
-            byte[] buffer = new Byte[checked((uint)Math.Min(4096, (int)fileStream.Length))];
-            int bytesRead = 0;
-            while ((bytesRead = fileStream.Read(buffer, 0, buffer.Length)) != 0)
-                requestStream.Write(buffer, 0, bytesRead);
-
-            // 输入尾部数据 
-            requestStream.Write(boundaryBytes, 0, boundaryBytes.Length);
         
-            // 返回数据流(源码) 
-            return webrequest.GetResponse() as HttpWebResponse;
-        }
-          #endregion
+
+       
+
+
+        
       
     }
 }

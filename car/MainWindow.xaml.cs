@@ -121,7 +121,10 @@ namespace car
                // MessageBox.Show((string)obj["message"]);
                 if (Me.IsChecked == true)
                 {
-                    FileStream fs = new FileStream("file.txt", FileMode.OpenOrCreate, FileAccess.Write);
+                   FileStream fs = new FileStream("file.txt", FileMode.OpenOrCreate, FileAccess.Write);
+
+                    fs.Seek(0, SeekOrigin.Begin);
+                    fs.SetLength(0); //清空txt文件
 
                     StreamWriter m_streamWriter = new StreamWriter(fs);
 

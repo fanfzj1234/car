@@ -36,6 +36,7 @@ namespace car
         public static JArray jar_Cbrand;
         public static JArray jar_Cseries;
         public static JArray jar_Ctype;
+        public static string pic1;
 
         public Main()
         {
@@ -418,13 +419,13 @@ namespace car
             //MessageBox.Show(changed_Cbrand.ToString());
             if (changed_Cbrand > 0)
             {
-                JObject cbrand = JObject.Parse(jar_Cbrand[changed_Cbrand-1].ToString());
+                JObject cbrand = JObject.Parse(jar_Cbrand[changed_Cbrand - 1].ToString());
                 changed_Cbrand_num = cbrand["pid"].ToString();
                 //MessageBox.Show(changed_Cbrand_num);
                 //MessageBox.Show(changed_Cbrand.Value);
                 if (changed_Cbrand != 0)
                 {
-                    string uri = "http://www.2sche.cn/zhushou/cartype_get.asp?id=2&cid=" + changed_Cbrand_num;
+                    string uri = "http://www.2sche.cn/zhushou/cartype_get.asp?id=2&cid=" + changed_Cbrand_num + "&did=" + Ckind.SelectedIndex.ToString();
                     //MessageBox.Show(uri);
 
 
@@ -437,34 +438,55 @@ namespace car
                     JObject value = JObject.Parse(obj["datavalue"].ToString());
                     //MessageBox.Show((string)obj[0]["pid"]);
                     jar_Cseries = JArray.Parse(value["list"].ToString());
-
-                    Cseries.Items.Clear();
-                    ComboBoxItem cseries = new ComboBoxItem();
-                    cseries.Content = "选择车系";
-                    Cseries.Items.Add(cseries);
-                    Cseries.SelectedIndex = 0;
-
-                    Ctype.Items.Clear();
-                    ComboBoxItem ctype = new ComboBoxItem();
-                    ctype.Content = "选择类型";
-                    ctype.TabIndex = 1;
-                    Ctype.Items.Add(ctype);
-                    Ctype.SelectedIndex = 0;
-                    Ctype.Visibility = System.Windows.Visibility.Hidden;
-
-                    for (var i = 0; i < jar_Cseries.Count; i++)
+                    //MessageBox.Show(jar_Cseries.Count.ToString());
+                    if (jar_Cseries.Count > 0)
                     {
-                        JObject j_cseries = JObject.Parse(jar_Cseries[i].ToString());
-                        ComboBoxItem cseries_com = new ComboBoxItem();
-                        cseries_com.Content = j_cseries["pname"];
-                        Cseries.Items.Add(cseries_com);
+                        //MessageBox.Show(jar_Cseries.Count.ToString());
+                        Cseries.Items.Clear();
+                        ComboBoxItem cseries = new ComboBoxItem();
+                        cseries.Content = "选择车系";
+                        Cseries.Items.Add(cseries);
+                        Cseries.SelectedIndex = 0;
 
-                        //MessageBox.Show(j["ppy"].ToString());
+                        Ctype.Items.Clear();
+                        ComboBoxItem ctype = new ComboBoxItem();
+                        ctype.Content = "选择类型";
+                        ctype.TabIndex = 1;
+                        Ctype.Items.Add(ctype);
+                        Ctype.SelectedIndex = 0;
+                        Ctype.Visibility = System.Windows.Visibility.Hidden;
+
+                        for (var i = 0; i < jar_Cseries.Count; i++)
+                        {
+                            JObject j_cseries = JObject.Parse(jar_Cseries[i].ToString());
+                            ComboBoxItem cseries_com = new ComboBoxItem();
+                            cseries_com.Content = j_cseries["pname"];
+                            Cseries.Items.Add(cseries_com);
+
+                            //MessageBox.Show(j["ppy"].ToString());
+                        }
                     }
-                }
+                
+          
+            else
+            {
+                Cseries.Items.Clear();
+                ComboBoxItem cseries = new ComboBoxItem();
+                cseries.Content = "暂无小类";
+                Cseries.Items.Add(cseries);
+                Cseries.SelectedIndex = 0;
+
+                Ctype.Items.Clear();
+                ComboBoxItem ctype = new ComboBoxItem();
+                ctype.Content = "选择类型";
+                ctype.TabIndex = 1;
+                Ctype.Items.Add(ctype);
+                Ctype.SelectedIndex = 0;
+                Ctype.Visibility = System.Windows.Visibility.Hidden;
             }
+                }
         }
-        
+          }
          //选择菜单联动3
         private void Cseries_Changed(object sender, SelectionChangedEventArgs e)
         {
@@ -535,34 +557,85 @@ namespace car
 
         private void SellCar_Click(object sender, ContextMenuEventArgs e)
         {
-            string province = Province.SelectedValue.ToString();       //获取地区
-            string city = City.SelectedValue.ToString();              //获取城市
+            string sheng = Province.SelectedValue.ToString();       //获取地区
+            string shi = City.SelectedValue.ToString();              //获取城市
+            //获取用户选择的型号
             changed_Ctype=(int)Ctype.SelectedIndex;
             JObject ctype = JObject.Parse(jar_Ctype[changed_Ctype - 1].ToString());
-            string changed_Ckind =Ckind.SelectedIndex.ToString();         //获取用户选择的车系
-            changed_Cbrand_num = ctype["pid"].ToString();                //获取用户选择的车系
-            changed_Cseries_num = ctype["pid"].ToString();                //获取用户选择的车系
-            changed_Ctype_num = ctype["pid"].ToString();                //获取用户选择的车系
+            string xinghao = ctype["pname"].ToString();
+            //获取用户选择的车系 
+            changed_Cseries = (int)Cseries.SelectedIndex;
+            JObject cseries = JObject.Parse(jar_Cseries[changed_Cseries - 1].ToString());
+            string chexi= cseries["pname"].ToString();
+            //获取用户选择的品牌
+            changed_Cbrand = (int)Cbrand.SelectedIndex;
+            JObject cbrand = JObject.Parse(jar_Cbrand[changed_Cseries - 1].ToString());
+            string pinpai = cbrand["pname"].ToString();
+            //获取选择的类别
+            string lb = Ckind.SelectedIndex.ToString();    
 
-            string imp_type;                                           //获取信息类别的选择
-            string cprice = Cprice.Text.ToString();                    //获取价格
-            string ctime = Ctime.SelectedDate.ToString();              //获取上牌时间
-            string ckilometre = Ckilometre.Text.ToString();            //获取里程数
-            string ccolor = Ccolor.SelectedIndex.ToString();           //获取选择第几个颜色
-            string caccident = Caccident.SelectedIndex.ToString();     //获取是否是事故车
-            string crl = CPL.Text.ToString();                          //获取排放量
-            string cry = CRY.SelectedIndex.ToString();                 //获取燃油系统类型
-            string csx = Csx.SelectedIndex.ToString();                 //获取是否过户
-            string cxz = Cxz.SelectedIndex.ToString();                 //获取使用性质
-            string cjc = Cjc.SelectedDate.ToString();                  //获取检车到期时间
-            string cbx = Cbx.SelectedDate.ToString();                  //获取保险到期时间
-            string clxr = Clxr.Text.ToString();                        //获取联系人
-            string cphone = CPhone.Text.ToString();                    //获取联系电话
-            string cqq = CQQ.Text.ToString();                          //获取联系人qq
-            string cxx = Cxx.Text.ToString();                          //获取详细信息
+            //信息类型选择
+            string lx;
+            if (Cperson.IsChecked==true)
+            {
+                lx = Cperson.Content.ToString();
+            }
+            else if (Ccompany.IsChecked == true)
+            {
+                lx = Ccompany.Content.ToString();
+            }
+
+            
+            string wbao = Cprice.Text.ToString();                      //获取外网报价
+            string nbao = "0";                                         //设置内网报价
+            string shangpai = Ctime.SelectedDate.ToString();           //获取上牌时间
+            string gongli = Ckilometre.Text.ToString();                //获取里程数
+            string yanse = Ccolor.SelectedValue.ToString();             //获取选择第几个颜色
+            string shigu = Caccident.SelectedValue.ToString();         //获取是否是事故车
+            string pailiang = CPL.Text.ToString();                     //获取排放量
+            string ranyou = CRY.SelectedValue.ToString();              //获取燃油系统类型
+
+
+            //性质选择
+            string peizhi;
+            if (CLP.IsChecked == true)
+            {
+                peizhi = Cperson.Content.ToString();
+            }
+            else if (CMP.IsChecked == true)
+            {
+                peizhi = CMP.Content.ToString();
+            }
+            else if (CHP.IsChecked == true)
+            {
+                peizhi = CHP.Content.ToString();
+            }
+            
+            string goohu = Csx.SelectedValue.ToString();               //获取是否过户
+            string xingzhi = Cxz.SelectedValue.ToString();             //获取使用性质
+            string jianche = Cjc.SelectedDate.ToString();              //获取检车到期时间
+            string baoxian = Cbx.SelectedDate.ToString();              //获取保险到期时间
+            string lianxiren = Clxr.Text.ToString();                   //获取联系人
+            string wtel = CPhone.Text.ToString();                      //获取联系电话
+            string qq = CQQ.Text.ToString();                           //获取联系人qq
+            string wshuoming = Cxx.Text.ToString();                    //获取详细信息
+            string bpeizhi = "0";
             
         }
-        
+        private void Upload_Img1(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog ofg = new OpenFileDialog();
+            ofg.ShowDialog();
+            string filename = ofg.FileName;
+            string uri = "http://www.2sche.cn/zhushou/uploadpic.asp";
+
+            HttpWebResponse response = HttpWebResponseUtility.HttpUploadFile(uri, filename, HttpWebResponseUtility.web_cookie);
+            StreamReader reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
+            string content = reader.ReadToEnd();
+            JObject obj = JObject.Parse(content);
+            MessageBox.Show((string)obj["message"] + "，图片路径：" + (string)obj["pic"]);
+            pic1 = (string)obj["pic"];
+        }
         #endregion
 
         #region 信息管理
@@ -648,7 +721,9 @@ namespace car
         }
 
         #endregion
-     
+
+        
+
       
     }
 }

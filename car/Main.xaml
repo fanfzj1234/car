@@ -698,21 +698,21 @@
                                 </Rectangle>
                                 <Grid Grid.Row="11">
                                     <TextBlock Text="标准配置：" Margin="20,10,0,10" HorizontalAlignment="Left"></TextBlock>
-                                    <CheckBox Content="电子稳定" HorizontalAlignment="Left" Margin="92,10,10,10"></CheckBox>
-                                    <CheckBox Content="陡坡缓降" HorizontalAlignment="Left" Margin="192,10,10,10"></CheckBox>
-                                    <CheckBox Content="电动坐椅" HorizontalAlignment="Left" Margin="292,10,10,10"></CheckBox>
-                                    <CheckBox Content="侧气囊帘" HorizontalAlignment="Left" Margin="392,10,10,10"></CheckBox>
-                                    <CheckBox Content="倒车雷达" HorizontalAlignment="Left" Margin="92,30,10,10"></CheckBox>
-                                    <CheckBox Content="车载电话" HorizontalAlignment="Left" Margin="192,30,10,10"></CheckBox>
-                                    <CheckBox Content="座椅加热" HorizontalAlignment="Left" Margin="292,30,10,10"></CheckBox>
-                                    <CheckBox Content="后座出风" HorizontalAlignment="Left" Margin="392,30,10,10"></CheckBox>
-                                    <CheckBox Content="自动空调" HorizontalAlignment="Left" Margin="92,50,10,10"></CheckBox>
-                                    <CheckBox Content="自动大灯" HorizontalAlignment="Left" Margin="192,50,10,10"></CheckBox>
-                                    <CheckBox Content="电子手刹" HorizontalAlignment="Left" Margin="292,50,10,10"></CheckBox>
-                                    <CheckBox Content="自动变速" HorizontalAlignment="Left" Margin="392,50,10,10"></CheckBox>
-                                    <CheckBox Content="手动挡" HorizontalAlignment="Left" Margin="92,70,10,10"></CheckBox>
-                                    <CheckBox Content="真皮坐椅" HorizontalAlignment="Left" Margin="192,70,10,10"></CheckBox>
-                                    <CheckBox Content="疝气大灯" HorizontalAlignment="Left" Margin="292,70,10,10"></CheckBox>
+                                    <CheckBox Name="dzwd" Content="电子稳定" HorizontalAlignment="Left" Margin="92,10,10,10"></CheckBox>
+                                    <CheckBox Name="tphj" Content="陡坡缓降" HorizontalAlignment="Left" Margin="192,10,10,10"></CheckBox>
+                                    <CheckBox Name="ddzy" Content="电动坐椅" HorizontalAlignment="Left" Margin="292,10,10,10"></CheckBox>
+                                    <CheckBox Name="cqnx" Content="侧气囊帘" HorizontalAlignment="Left" Margin="392,10,10,10"></CheckBox>
+                                    <CheckBox Name="dcld" Content="倒车雷达" HorizontalAlignment="Left" Margin="92,30,10,10"></CheckBox>
+                                    <CheckBox Name="czdh" Content="车载电话" HorizontalAlignment="Left" Margin="192,30,10,10"></CheckBox>
+                                    <CheckBox Name="zyjr" Content="座椅加热" HorizontalAlignment="Left" Margin="292,30,10,10"></CheckBox>
+                                    <CheckBox Name="hzcf" Content="后座出风" HorizontalAlignment="Left" Margin="392,30,10,10"></CheckBox>
+                                    <CheckBox Name="zdkt" Content="自动空调" HorizontalAlignment="Left" Margin="92,50,10,10"></CheckBox>
+                                    <CheckBox Name="zddd" Content="自动大灯" HorizontalAlignment="Left" Margin="192,50,10,10"></CheckBox>
+                                    <CheckBox Name="dzss" Content="电子手刹" HorizontalAlignment="Left" Margin="292,50,10,10"></CheckBox>
+                                    <CheckBox Name="zdbs" Content="自动变速" HorizontalAlignment="Left" Margin="392,50,10,10"></CheckBox>
+                                    <CheckBox Name="sdd" Content="手动挡" HorizontalAlignment="Left" Margin="92,70,10,10"></CheckBox>
+                                    <CheckBox Name="zpzy" Content="真皮坐椅" HorizontalAlignment="Left" Margin="192,70,10,10"></CheckBox>
+                                    <CheckBox Name="sqdd" Content="疝气大灯" HorizontalAlignment="Left" Margin="292,70,10,10"></CheckBox>
                                     <Rectangle Margin="20,0,0,0" Height="1" Width="547" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                         <Rectangle.Fill>
                                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -722,6 +722,7 @@
                                         </Rectangle.Fill>
                                     </Rectangle>
                                 </Grid>
+								   
                                 <Grid Grid.Row="12">
                                     <TextBlock Text="车辆号牌：" Margin="20,10,0,10" VerticalAlignment="Center" HorizontalAlignment="Left" />
                                     <ComboBox SelectedIndex="0" HorizontalAlignment="Left" Margin="92,10,0,10" Width="50">
@@ -739,7 +740,10 @@
                                         </Rectangle.Fill>
                                     </Rectangle>
                                 </Grid>
-                                <Grid Grid.Row="13">
+								   <Grid Grid.Row="13"> 
+								       <CheckBox Name="tongbu" Content="将该信息批发给同行" HorizontalAlignment="Left" Margin="92,10,10,10"></CheckBox>
+								    </Grid>
+                                <Grid Grid.Row="14">
                                     <Button Content="提交发布" Margin="92,4,370,10" VerticalAlignment="Center" Height="20"/>
                                     <Button Content="重新填写" Margin="192,5,270,9" VerticalAlignment="Center" Height="20"/>
                                 </Grid>

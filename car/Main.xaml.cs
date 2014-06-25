@@ -619,8 +619,138 @@ namespace car
             string wtel = CPhone.Text.ToString();                      //获取联系电话
             string qq = CQQ.Text.ToString();                           //获取联系人qq
             string wshuoming = Cxx.Text.ToString();                    //获取详细信息
-            string bpeizhi = "0";
-            
+            string bpeizhi="";                                        //获取标准配置选择
+            if(dzwd.IsChecked==true)
+            {
+                bpeizhi += dzwd.Content+";,";
+            }
+			if(dzwd.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+            if(tphj.IsChecked==true)
+			{
+			    bpeizhi += tphj.Content+";,";
+			}
+			if(tphj.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			 if(ddzy.IsChecked==true)
+            {
+                bpeizhi += ddzy.Content+";,";
+            }
+			if(ddzy.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(cqnx.IsChecked==true)
+            {
+                bpeizhi += cqnx.Content+";,";
+            }
+			if(cqnx.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+            if(dcld.IsChecked==true)
+			{
+			    bpeizhi += dcld.Content+";,";
+			}
+			if(dcld.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			 if(czdh.IsChecked==true)
+            {
+                bpeizhi += czdh.Content+";,";
+            }
+			if(czdh.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+             if(zyjr.IsChecked==true)
+            {
+                bpeizhi += zyjr.Content+";,";
+            }
+			if(zyjr.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(hzcf.IsChecked==true)
+            {
+                bpeizhi += hzcf.Content+";,";
+            }
+			if(hzcf.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(zdkt.IsChecked==true)
+            {
+                bpeizhi += zdkt.Content+";,";
+            }
+			if(zdkt.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(zddd.IsChecked==true)
+            {
+                bpeizhi += zddd.Content+";,";
+            }
+			if(zddd.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(dzss.IsChecked==true)
+            {
+                bpeizhi += dzss.Content+";,";
+            }
+			if(dzss.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(zdbs.IsChecked==true)
+            {
+                bpeizhi += zdbs.Content+";,";
+            }
+			if(zdbs.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(sdd.IsChecked==true)
+            {
+                bpeizhi += sdd.Content+";,";
+            }
+			if(sdd.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(zpzy.IsChecked==true)
+            {
+                bpeizhi += zpzy.Content+";,";
+            }
+			if(zpzy.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+			if(sqdd.IsChecked==true)
+            {
+                bpeizhi += sqdd.Content+";,";
+            }
+			if(sqdd.IsChecked==false)
+            {
+                bpeizhi +=",";
+            }
+            string neifabu="";
+            string yuanli="";
+            string chuchang="";
+            string cishu=="";
+            string paifang="";
+            string nshuoming="";
+            string weixiu="";
+            string ntel="";
+            string chepai="";
+			string pic2="";
+			string tongbu="";
         }
         private void Upload_Img1(object sender, RoutedEventArgs e)
         {

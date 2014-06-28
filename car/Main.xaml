@@ -576,7 +576,7 @@
                                     </Rectangle.Fill>
                                 </Rectangle>
                                 <TextBlock Text="*信息类别：" Grid.Row="2" Margin="20,10,0,10"/>
-                                <RadioButton Name="Cperson" GroupName="rad_Type" Content="个人" Grid.Row="2" Margin="92,10,410,10" Checked="Cperson_Checked"/>
+                                <RadioButton Name="Cperson" GroupName="rad_Type" Content="个人" Grid.Row="2" Margin="92,10,410,10"/>
                                 <RadioButton  Name="Ccompany" GroupName="rad_Type" Content="车商" Grid.Row="2" Margin="141,10,354,10"/>
                                 <Rectangle Margin="20,0,-20,0" Height="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>
@@ -686,7 +686,7 @@
                                     </Rectangle.Fill>
                                 </Rectangle>
                                 <TextBlock Text="*上传照片:" Grid.Row="10" HorizontalAlignment="Left" Margin="20,14,0,14" VerticalAlignment="Center" Height="14" Width="56"></TextBlock>
-                                <Button Content="选择图片" Grid.Row="10" Margin="92,12,0,12" VerticalAlignment="Center" HorizontalAlignment="Left" Height="18" Width="52" Click="Upload_Img"></Button>
+                                <Button Content="选择图片" Grid.Row="10" Margin="92,12,0,12" VerticalAlignment="Center" HorizontalAlignment="Left" Height="18" Width="52"></Button>
                                 <TextBlock Text="最多上传4张，单张大小不超过4M的.jpg,.gif,.jpeg图片" Grid.Row="10" HorizontalAlignment="Left" Margin="160,0,0,10" VerticalAlignment="Bottom" Height="15" Width="291"></TextBlock>
                                 <Rectangle Margin="20,0,-20,0" Grid.Row="10" Height="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Visibility="Visible">
                                     <Rectangle.Fill>

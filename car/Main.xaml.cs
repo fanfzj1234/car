@@ -743,7 +743,7 @@ namespace car
             string neifabu="";
             string yuanli="";
             string chuchang="";
-            string cishu=="";
+            string cishu="";
             string paifang="";
             string nshuoming="";
             string weixiu="";

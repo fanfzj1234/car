@@ -53,7 +53,8 @@ namespace car
         public MainWindow()
         {
             InitializeComponent();
-
+            Random gen = new Random();
+            code.Content = gen.Next(10000); ;
             FileStream fs = new FileStream("file.txt", FileMode.Open, FileAccess.Read);
             StreamReader m_streamReader = new StreamReader(fs);
             //使用StreamReader类来读取文件
@@ -78,6 +79,14 @@ namespace car
                 Application.Current.Shutdown();
             }
         }
+        private void ImageClose_Click(object sender, MouseButtonEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Do you really want to exit?", "", MessageBoxButton.YesNo);
+            if (result == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
+        }
         #endregion
 
         #region 设置快捷键
@@ -93,13 +102,21 @@ namespace car
             }
         }
         #endregion
-       
+
+
         #region 登录系统
         private void Loginbutton_Click(object sender, RoutedEventArgs e)
         {
             string UserName = this.UserNametextBox.Text.Trim();
             string PassWord = this.passwordBox.Password.Trim();
+            if(codeBox.Text.ToString()!=code.Content.ToString())
+            {
 
+                MessageBox.Show("验证码不正确，请重新输入");
+                this.codeBox.Focus();
+            }
+            else
+            { 
             string postdata = "memberid=" + UserName + "&password=" + PassWord;
             string uri = "http://www.2sche.cn/zhushou/login.asp";
   
@@ -112,9 +129,9 @@ namespace car
            string a = reader.ReadToEnd();
            string content = string2Json(a);
            
-           JObject obj = JObject.Parse(@content);
+           JObject obj = JObject.Parse(content);
            //MessageBox.Show(a);
-          //MessageBox.Show(content);
+           //MessageBox.Show(content);
               //  if (UserName == "eqing")
         if ((string)obj["status"]=="1")
             {
@@ -169,11 +186,13 @@ namespace car
                 else
                 {
                //     MessageBox.Show((string)obj["message"]);
-                    
+                    MessageBox.Show("用户名或密码不正确，请重新输入");
+                    this.UserNametextBox.Clear();
                     this.passwordBox.Clear();
-                    this.passwordBox.Focus();
+                    this.UserNametextBox.Focus();
                 }
          }
+        }
         #endregion
 
         private void hyperlink0_Click(object sender, RoutedEventArgs e)
@@ -187,11 +206,13 @@ namespace car
              s="";
             for(int i=0;i<temp.Length-1;i++)
             {
-                s = s + temp[i] + "/";
+                s = s + temp[i] + "\\\\";
             }
             s =s+ temp[temp.Length - 1];
          return s; 
         }
+
+
         
     }
 }

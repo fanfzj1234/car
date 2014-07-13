@@ -1,7 +1,7 @@
 ﻿<Window x:Class="car.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="系统登录" Height="450" Width="650" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="Transparent" KeyDown="Window_KeyDown">
+        Title="系统登录" Height="450" Width="650" WindowStartupLocation="CenterScreen" WindowStyle="None" BorderBrush="Transparent" KeyDown="Window_KeyDown" MouseDown="Window_MouseMove">
     <Grid Width="650" HorizontalAlignment="Right">
         <Grid.ColumnDefinitions>
 
